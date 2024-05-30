@@ -19,6 +19,8 @@ class BookConferenceResource extends Resource
 
     protected static ?string $slug = 'book-conference-resource';
 
+    protected static bool $shouldRegisterNavigation = false;
+
     public static function form(Form $form): Form
     {
         return $form

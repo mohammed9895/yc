@@ -8,6 +8,7 @@ use Filament\Http\Middleware\DispatchServingFilamentEvent;
 use Filament\Pages;
 use Filament\Panel;
 use Filament\PanelProvider;
+use Filament\SpatieLaravelTranslatablePlugin;
 use Filament\Support\Colors\Color;
 use Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse;
 use Illuminate\Cookie\Middleware\EncryptCookies;
@@ -19,6 +20,7 @@ use Illuminate\View\Middleware\ShareErrorsFromSession;
 use Jeffgreco13\FilamentBreezy\BreezyCore;
 use Kenepa\TranslationManager\TranslationManagerPlugin;
 use BezhanSalleh\FilamentGoogleAnalytics\Widgets;
+use LaraZeus\Bolt\BoltPlugin;
 
 
 class AdminPanelProvider extends PanelProvider
@@ -30,14 +32,17 @@ class AdminPanelProvider extends PanelProvider
             ->path('admin')
             ->login()
             ->colors([
-                'primary' => Color::Amber,
+                'primary' => '#4a1d96',
+                'gray' => Color::Slate,
             ])
             ->discoverResources(in: app_path('Filament/Admin/Resources'), for: 'App\\Filament\\Admin\\Resources')
             ->discoverPages(in: app_path('Filament/Admin/Pages'), for: 'App\\Filament\\Admin\\Pages')
             ->pages([
                 Pages\Dashboard::class,
             ])
+            ->font('IBM Plex Sans Arabic')
             ->discoverWidgets(in: app_path('Filament/Admin/Widgets'), for: 'App\\Filament\\Admin\\Widgets')
+            ->databaseNotifications()
             ->widgets([
                 Widgets\PageViewsWidget::class,
                 Widgets\VisitorsWidget::class,
@@ -73,6 +78,9 @@ class AdminPanelProvider extends PanelProvider
                     hasAvatars: false, // Enables the avatar upload form component (default = false)
                     slug: 'my-profile' // Sets the slug for the profile page (default = 'my-profile')
                 ),
-            );
+            )->plugins([
+                SpatieLaravelTranslatablePlugin::make()->defaultLocales(['ar', 'en']),
+                BoltPlugin::make()
+            ]);
     }
 }

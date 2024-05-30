@@ -6,7 +6,11 @@ module.exports = {
         './resources/livewire/**/*.blade.php',
         './vendor/filament/**/*.blade.php',
         './resources/vendor/**/*.blade.php',
-        './vendor/kenepa/translation-manager/resources/**/*.blade.php'
+        './resources/views/vendor/zeus/**/*.blad`e.php',
+        './vendor/lara-zeus/core/resources/views/**/*.blade.php',
+        './vendor/lara-zeus/bolt/resources/views/themes/**/*.blade.php',
+        './vendor/lara-zeus/bolt/resources/views/filament/**/*.blade.php',
+        './vendor/kenepa/translation-manager/resources/views/*.blade.php',
     ],
     theme: {
         container: {

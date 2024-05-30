@@ -1,3 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
 :host {
     --day-width: 60px;
     --day-height: 60px;

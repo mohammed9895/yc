@@ -34,7 +34,7 @@ class BookingsChart extends BarChartWidget
                 [
                     'label' => 'Bookings',
                     'data' => $data->map(fn ($workshop) => $workshop->bookings_count),
-                    'backgroundColor' => '#a855f7',
+//                    'backgroundColor' => '#a855f7',
                 ],
             ],
             'labels' => $data->map(fn ($workshop) => $workshop->title),

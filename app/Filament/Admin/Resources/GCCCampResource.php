@@ -24,6 +24,8 @@ class GCCCampResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
+    protected static bool $shouldRegisterNavigation = false;
+
     public static function getModelLabel(): string
     {
         return __('إستمارات المشاركة في مخيم الشباب الخليجي 2023');

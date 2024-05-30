@@ -31,7 +31,7 @@ class Dashboard extends BasePage
             EventsOverview::class,
             HallBookingChart::class,
             LatestEvents::class,
-            AttendessOverview::class,
+//            AttendessOverview::class,
         ];
     }
 

@@ -10,12 +10,15 @@ use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
+use const _PHPStan_49641e245\__;
 
 class TalentRequestResource extends Resource
 {
     protected static ?string $model = TalentRequest::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+
+    protected static ?string $navigationGroup = 'Manjam';
 
     public static function form(Form $form): Form
     {

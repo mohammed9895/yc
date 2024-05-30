@@ -2,6 +2,7 @@
 
 namespace App\Providers\Filament;
 
+use App\Livewire\Register;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
@@ -20,6 +21,7 @@ use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
 use Jeffgreco13\FilamentBreezy\BreezyCore;
 use Kenepa\TranslationManager\TranslationManagerPlugin;
+use LaraZeus\Bolt\BoltPlugin;
 
 class CpPanelProvider extends PanelProvider
 {
@@ -28,6 +30,7 @@ class CpPanelProvider extends PanelProvider
         return $panel
             ->default()
             ->id('cp')
+            ->registration(\App\Filament\Cp\Pages\Auth\Register::class)
             ->path('cp')
             ->login()
             ->colors([
@@ -58,8 +61,9 @@ class CpPanelProvider extends PanelProvider
             ->authMiddleware([
                 Authenticate::class,
             ])->viteTheme('resources/css/filament/cp/theme.css')
-            ->plugin(SpatieLaravelTranslatablePlugin::make())
+//            ->plugin(SpatieLaravelTranslatablePlugin::make())
             ->plugin(TranslationManagerPlugin::make())
+            ->plugin(BoltPlugin::make())
             ->plugin(
                 BreezyCore::make()->myProfile(
                     shouldRegisterNavigation: true, // Adds a main navigation item for the My Profile page (default = false)

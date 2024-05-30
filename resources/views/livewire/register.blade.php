@@ -8,7 +8,7 @@
 
 @endpush
 
-<x-filament-breezy::auth-card action="register" >
+<div action="register" >
     <div class="w-full flex justify-center">
         <x-filament::brand />
     </div>
@@ -19,13 +19,13 @@
         </h2>
         <p class="mt-2 text-sm text-center">
             {{ __('filament-breezy::default.or') }}
-            <a class="text-primary-600" href="{{ route('filament.auth.login') }}">
-                {{ strtolower(__('filament::login.heading')) }}
-            </a>
+{{--            <a class="text-primary-600" href="{{ route('filament.auth.login') }}">--}}
+{{--                {{ strtolower(__('filament::login.heading')) }}--}}
+{{--            </a>--}}
         </p>
     </div>
 
     {{ $this->form }}
 
-    
-</x-filament-breezy::auth-card>
+
+</div>

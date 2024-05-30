@@ -19,6 +19,11 @@ class TinderResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
+    public static function getNavigationGroup(): ?string
+    {
+        return   __('companies');
+    }
+
     public static function form(Form $form): Form
     {
         return $form

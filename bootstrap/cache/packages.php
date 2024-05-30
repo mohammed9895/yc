@@ -6,6 +6,13 @@
       'EloquentSerialize' => 'AnourValar\\EloquentSerialize\\Facades\\EloquentSerializeFacade',
     ),
   ),
+  'archtechx/laravel-seo' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'ArchTech\\SEO\\SEOServiceProvider',
+    ),
+  ),
   'bezhansalleh/filament-google-analytics' => 
   array (
     'providers' => 
@@ -40,6 +47,20 @@
     'providers' => 
     array (
       0 => 'BladeUI\\Icons\\BladeIconsServiceProvider',
+    ),
+  ),
+  'codeat3/blade-clarity-icons' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'Codeat3\\BladeClarityIcons\\BladeClarityIconsServiceProvider',
+    ),
+  ),
+  'codeat3/blade-iconpark' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'Codeat3\\BladeIconpark\\BladeIconparkServiceProvider',
     ),
   ),
   'filament/actions' => 
@@ -116,6 +137,13 @@
       'Trend' => 'Flowframe\\Trend\\TrendFacade',
     ),
   ),
+  'guava/filament-icon-picker' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'Guava\\FilamentIconPicker\\FilamentIconPickerServiceProvider',
+    ),
+  ),
   'jeffgreco13/filament-breezy' => 
   array (
     'providers' => 
@@ -139,6 +167,53 @@
     'providers' => 
     array (
       0 => 'Kirschbaum\\PowerJoins\\PowerJoinsServiceProvider',
+    ),
+  ),
+  'lara-zeus/accordion' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'LaraZeus\\Accordion\\AccordionServiceProvider',
+    ),
+  ),
+  'lara-zeus/bolt' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'LaraZeus\\Bolt\\BoltServiceProvider',
+    ),
+    'aliases' => 
+    array (
+      'Bolt' => 'LaraZeus\\Bolt\\Facades\\Bolt',
+    ),
+  ),
+  'lara-zeus/core' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'LaraZeus\\Core\\CoreServiceProvider',
+    ),
+    'aliases' => 
+    array (
+      'Core' => 'LaraZeus\\Core\\CoreFacade',
+    ),
+  ),
+  'lara-zeus/list-group' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'LaraZeus\\ListGroup\\ListGroupServiceProvider',
+    ),
+  ),
+  'laravel/horizon' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'Laravel\\Horizon\\HorizonServiceProvider',
+    ),
+    'aliases' => 
+    array (
+      'Horizon' => 'Laravel\\Horizon\\Horizon',
     ),
   ),
   'laravel/sail' => 
@@ -228,6 +303,13 @@
     'aliases' => 
     array (
       'BladeCaptureDirective' => 'RyanChandler\\BladeCaptureDirective\\Facades\\BladeCaptureDirective',
+    ),
+  ),
+  'ryangjchandler/blade-tabler-icons' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'RyanChandler\\TablerIcons\\BladeTablerIconsServiceProvider',
     ),
   ),
   'spatie/laravel-analytics' => 

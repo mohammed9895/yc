@@ -10,6 +10,8 @@ class Schedule extends Model
 {
     use HasFactory;
 
+    protected $guarded = [];
+
     protected $casts = [
         'starts_at' => 'date',
         'ends_at' => 'date',
