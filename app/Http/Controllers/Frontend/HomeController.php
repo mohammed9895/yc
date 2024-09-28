@@ -32,6 +32,16 @@ class HomeController extends Controller
         return view('frontend.about', compact('statistices'));
     }
 
+    public function tmakon()
+    {
+        return view('frontend.tmakon');
+    }
+
+    public function incubators()
+    {
+        return view('frontend.incubators');
+    }
+
     public function contact()
     {
         return view('frontend.contact');

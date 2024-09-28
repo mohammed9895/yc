@@ -32,84 +32,15 @@
     <link rel="stylesheet" href="{{ asset('css/main.css') }}">
 
     @livewireStyles
+
+    @vite('resources/css/app.css')
 </head>
 
 <body>
     @include('layouts.partials.nav')
     @yield('content')
-    <section class="py-10 lg:py-32 bg-blue-700 lg:rounded-tl-[100px]">
-        <div class="container mx-auto">
-            <div class="bg-white rounded-xl">
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-0">
-                    @livewire('frontend.contact-form')
-                    <div>
-                        <iframe
-                            class="w-full rounded-b-xl rtl:lg:rounded-l-xl lg:rounded-r-xl
-                            "
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7312.769871711222!2d58.40432949357911!3d23.590523900000008!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e91ff1beff66c19%3A0xdb4811de1e38911d!2sYouth%20Center!5e0!3m2!1sen!2som!4v1682611540288!5m2!1sen!2som"
-                            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-                            referrerpolicy="no-referrer-when-downgrade"></iframe>
-                    </div>
-                </div>
-            </div>
-            <div class="flex justify-between flex-col lg:flex-row text-center text-white mt-4">
-                <div>
-                    {{ __('جميع الحقوق محفوظة لـ مركز الشباب - سلطنة عمان') }}
-                </div>
-                <div class="mt-10 lg:mt-0">
-                    <ul class="flex justify-center space-x-3 lg:space-x-3">
-                        <li>
-                            <a href="#">{{ __('سياسة الخصوصية') }}</a>
-                        </li>
-                        <li>
-                            <a href="#">{{ __('الشروط والأحكام') }}</a>
-                        </li>
-                        <li>
-                            <a href="#">{{ __('أكثر الأسئلة تكراراً') }}</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="flex justify-center mt-10">
-                <ul class="flex space-x-3">
-                    <li class="rtl:ml-3">
-                        <a href="#">
-                            <i class="fab fa-facebook fa-xl text-white hover:text-lime-400 transition-all"></i>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <i class="fab fa-twitter fa-xl text-white hover:text-lime-400 transition-all"></i>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <i class="fab fa-youtube fa-xl text-white hover:text-lime-400 transition-all"></i>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <i class="fab fa-instagram fa-xl text-white hover:text-lime-400 transition-all"></i>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <i class="fab fa-linkedin fa-xl text-white hover:text-lime-400 transition-all"></i>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <i class="fab fa-snapchat fa-xl text-white hover:text-lime-400 transition-all"></i>
-                        </a>
-                    </li>
-                    <li class="text-white uppercase">
-                        youthcenter_om
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </section>
 
+    @include('layouts.partials.footer')
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"
         integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -123,6 +54,7 @@
             $('.owl-carousel').owlCarousel({
                 rtl: true,
                 loop: true,
+                margin: 20,
                 responsive: {
                     0: {
                         items: 1
@@ -131,10 +63,13 @@
                         items: 3
                     },
                     1000: {
-                        items: 6
+                        items: 7
                     }
                 }
             });
+
+
+
             $(document).scroll(function() {
                 var $nav = $(".navbar-fixed-top");
                 $nav.toggleClass('scrolled', $(this).scrollTop() > $nav.height());
@@ -157,6 +92,8 @@
 
     <!-- Focus plugin -->
     <script defer src="https://unpkg.com/@alpinejs/focus@3.x.x/dist/cdn.min.js"></script>
+
+    <script src="https://cdn.lordicon.com/lordicon.js"></script>
 
     @livewire('livewire-ui-modal')
 

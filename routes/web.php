@@ -28,7 +28,8 @@ Route::get('/language/{locale}', function ($locale) {
 
 Route::get('/paths/{id}', [HomeController::class, 'path']);
 
-Route::get('/about', [HomeController::class, 'about']);
+Route::get('/tmakon', [HomeController::class, 'tmakon']);
+Route::get('/incubators', [HomeController::class, 'incubators']);
 
 Route::get('/contact', [HomeController::class, 'contact']);
 

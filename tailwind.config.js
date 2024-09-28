@@ -23,6 +23,7 @@ module.exports = {
                 success: colors.green,
                 warning: colors.yellow,
                 manjam_primary: '#684e9a',
+                primary_purple: '#6512D9'
             },
             animation: {
                 marquee: 'marquee 25s linear infinite',
