@@ -27,11 +27,17 @@ module.exports = {
             },
             animation: {
                 marquee: 'marquee 25s linear infinite',
+                'border-spin': 'border-spin 7s linear infinite',
             },
             keyframes: {
                 marquee: {
                     '0%': {transform: 'translateY(0%)'},
                     '100%': {transform: 'translateY(-50%)'},
+                },
+                'border-spin': {
+                    '100%': {
+                        transform: 'rotate(-360deg)',
+                    },
                 },
             },
         },

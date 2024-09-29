@@ -5,4 +5,5 @@
     @include('frontend.home.sponsers')
     @include('frontend.home.sultan')
     @include('frontend.home.halls')
+    @include('frontend.home.goals')
 @endsection

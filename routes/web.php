@@ -33,39 +33,13 @@ Route::get('/incubators', [HomeController::class, 'incubators']);
 
 Route::get('/contact', [HomeController::class, 'contact']);
 
-//Route::get('/reset-passwords/{token}', ResetPassword::class)->middleware(['guest'])->name('password.reset');
-
-Route::get('/test', function () {
-    return "test";
-});
-
-Route::get('/booking', function () {
-
-});
-
-
-Route::get('/send-eid-message', function () {
-    $users = \App\Models\User::all();
-    $sms = new SmsMessage;
-    foreach ($users as $user) {
-        $sms->to($user->phone)
-            ->message('نهنئكم بمناسبة عيد الفطر المبارك، نتمنى لكم أوقاتًا سعيدة وأجواء مليئة بالفرح والسعادة باختلاف أدواركم في العيد🎉✨. https://www.instagram.com/p/C5i4NU1qw_a دمتم ودامت أيامكم محفوفة بالبهجة')
-            ->lang('ar')
-            ->send();
-    }
-});
-
 Route::get('/termsandconditions', function () {
     return view('frontend.terms');
 });
 
-//Route::get('/ratings', \App\Http\Livewire\RaProgressnamtings::class);
-
-
 Route::view('/manjam', 'frontend.manjam');
 
 Route::get('/manjam/talent_type/{talent_type}', \App\Livewire\Manjam\TalentType::class);
-
 
 // MANJAM
 Route::get('/manjam/categories', [CategoriesController::class, 'index'])->name('manjam.all_categories');

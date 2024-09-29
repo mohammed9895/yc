@@ -13,7 +13,7 @@
         </div>
     </div>
 
-    <div class="grid grid-cols-8 grid-rows-5 gap-4 px-10 mt-32">
+    <div class="grid grid-cols-4 grid-rows-5 gap-4 md:grid-cols-3 xl:grid-cols-8 px-10 mt-32">
         <div class="row-span-3 relative">
             <div class="bg-sky-600 rounded-lg relative overflow-x-hidden">
                 <svg class="absolute z-10 separator m-auto my-10 fill-sky-300 opacity-20" width="900" viewBox="0 0 687 155" xmlns="http://www.w3.org/2000/svg"><g stroke="currentColor" stroke-width="7" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"><path d="M20 58c27-13.33333333 54-20 81-20 40.5 0 40.5 20 81 20s40.626917-20 81-20 40.123083 20 80.5 20 40.5-20 81-20 40.5 20 81 20 40.626917-20 81-20c26.915389 0 53.748722 6.66666667 80.5 20" opacity=".1"></path><path d="M20 78c27-13.3333333 54-20 81-20 40.5 0 40.5 20 81 20s40.626917-20 81-20 40.123083 20 80.5 20 40.5-20 81-20 40.5 20 81 20 40.626917-20 81-20c26.915389 0 53.748722 6.6666667 80.5 20" opacity=".2"></path><path d="M20 98c27-13.3333333 54-20 81-20 40.5 0 40.5 20 81 20s40.626917-20 81-20 40.123083 20 80.5 20 40.5-20 81-20 40.5 20 81 20 40.626917-20 81-20c26.915389 0 53.748722 6.6666667 80.5 20" opacity=".6"></path><path d="M20 118c27-13.3333333 54-20 81-20 40.5 0 40.5 20 81 20s40.626917-20 81-20 40.123083 20 80.5 20 40.5-20 81-20 40.5 20 81 20 40.626917-20 81-20c26.915389 0 53.748722 6.6666667 80.5 20"></path></g></svg>
@@ -34,7 +34,7 @@
                     <h4 class="">مدرب في مجال القهوة</h4>
                 </div>
                 <div class="flex justify-center">
-                    <img src="{{ asset('images/ahmed.png') }}"  class="z-50 h-72" alt="">
+                    <img src="{{ asset('images/ahmed.png') }}"  class="z-50 w-72" alt="">
                 </div>
             </div>
         </div>
@@ -46,7 +46,7 @@
                     <h4 class="">مصممة جرافيك</h4>
                 </div>
                 <div class="flex justify-center">
-                    <img src="{{ asset('images/safa.png') }}" class="h-72 z-50" alt="">
+                    <img src="{{ asset('images/safa.png') }}" class="w-72 z-50" alt="">
                 </div>
             </div>
         </div>
@@ -58,7 +58,7 @@
                     <h4 class="">مصممة جرافيك</h4>
                 </div>
                 <div class="flex justify-center">
-                    <img src="{{ asset('images/wijdan.png') }}" class="h-72 z-50" alt="">
+                    <img src="{{ asset('images/wijdan.png') }}" class="w-72 z-50" alt="">
                 </div>
             </div>
         </div>
@@ -70,7 +70,7 @@
                     <h4 class="">مهندسة معمارية</h4>
                 </div>
                 <div class="flex justify-center">
-                    <img src="{{ asset('images/maryam.png') }}" class="h-72 z-50" alt="">
+                    <img src="{{ asset('images/maryam.png') }}" class="w-72 z-50" alt="">
                 </div>
             </div>
         </div>
@@ -82,7 +82,7 @@
                     <h4 class="">مصممة داخلية</h4>
                 </div>
                 <div class="flex justify-center">
-                    <img src="{{ asset('images/bushra.png') }}" class="h-72 z-50" alt="">
+                    <img src="{{ asset('images/bushra.png') }}" class="w-72 z-50" alt="">
                 </div>
             </div>
         </div>
@@ -94,7 +94,7 @@
                     <h4 class="">مسوق</h4>
                 </div>
                 <div class="flex justify-center">
-                    <img src="{{ asset('images/aziz.png') }}" class="h-72 z-50" alt="">
+                    <img src="{{ asset('images/aziz.png') }}" class="w-72 z-50" alt="">
                 </div>
             </div>
         </div>
@@ -106,7 +106,7 @@
                     <h4 class="">مصور فوتغرافي</h4>
                 </div>
                 <div class="flex justify-center">
-                    <img src="{{ asset('images/audi.png') }}" class="h-72 z-50" alt="">
+                    <img src="{{ asset('images/audi.png') }}" class="w-72 z-50" alt="">
                 </div>
             </div>
         </div>
