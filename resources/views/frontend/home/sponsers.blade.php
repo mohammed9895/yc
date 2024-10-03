@@ -1,5 +1,5 @@
 <section>
-    <div class="container mx-auto py-24">
+    <div class="container mx-auto pb-24">
         <div class="grid grid-cols-2 md:grid-cols-6 gap-5">
             <div>
                 <a href="#">

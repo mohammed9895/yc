@@ -42,6 +42,13 @@ class HomeController extends Controller
         return view('frontend.incubators');
     }
 
+    public function programs()
+    {
+        return view('frontend.programs');
+    }
+
+
+
     public function contact()
     {
         return view('frontend.contact');

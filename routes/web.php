@@ -30,6 +30,7 @@ Route::get('/paths/{id}', [HomeController::class, 'path']);
 
 Route::get('/tmakon', [HomeController::class, 'tmakon']);
 Route::get('/incubators', [HomeController::class, 'incubators']);
+Route::get('/programs', [HomeController::class, 'programs']);
 
 Route::get('/contact', [HomeController::class, 'contact']);
 

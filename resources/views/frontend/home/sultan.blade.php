@@ -1,7 +1,7 @@
 <section class="">
     <div class="container mx-auto">
         <div class="grid grid-cols-4 grid-rows-5 gap-4">
-            <div class="col-span-2 row-span-2 bg-gray-100/80 px-5 pt-5 rounded-lg">
+            <div class="col-span-2 row-span-2 bg-gray-50/60 px-5 pt-5 rounded-lg shadow-sm ring-1 ring-black/5">
                 <div class="flex">
                     <div>
                         <div class="size-20 items-center justify-center">
@@ -25,7 +25,7 @@
                     </div>
                 </div>
             </div>
-            <div class="row-span-2 col-start-3 bg-green-100 px-5 pt-5 rounded-lg flex justify-center items-center">
+            <div class="row-span-2 col-start-3 bg-green-100 px-5 pt-5 rounded-lg flex justify-center items-center shadow-sm ring-1 ring-green-900/10">
                 <div class="flex flex-col items-center justify-center">
                     <div class="mb-3">
                         <lord-icon
@@ -39,7 +39,7 @@
                     <h3 class="text-lg text-green-900">برنامج وورشة تدريبة</h3>
                 </div>
             </div>
-            <div class="row-span-2 col-start-1 row-start-3 bg-cyan-100 px-5 pt-5 rounded-lg flex justify-center items-center">
+            <div class="row-span-2 col-start-1 row-start-3 bg-cyan-100 px-5 pt-5 rounded-lg flex justify-center items-center shadow-sm ring-1 ring-cyan-900/10">
                 <div class="flex flex-col items-center justify-center">
                     <div class="mb-3">
                         <lord-icon
@@ -53,7 +53,7 @@
                     <h3 class="text-lg text-cyan-900">مؤسسة صغيرة و متوسطة</h3>
                 </div>
             </div>
-            <div class="col-span-2 row-span-2 col-start-3 row-start-3 bg-gray-100/80 px-5 pt-5 rounded-lg">
+            <div class="col-span-2 row-span-2 col-start-3 row-start-3 bg-gray-50/60 px-5 pt-5 rounded-lg shadow-sm ring-1 ring-black/5">
                 <div class="flex items-center">
                     <div class="ml-4">
                         <img src="{{ asset('images/y3.png') }}" width="800" alt="">
@@ -79,7 +79,7 @@
                     </div>
                 </div>
             </div>
-            <div class="row-span-2 col-start-4 row-start-1 bg-orange-100 px-5 pt-5 rounded-lg flex justify-center items-center">
+            <div class="row-span-2 col-start-4 row-start-1 bg-orange-100 px-5 pt-5 rounded-lg flex justify-center items-center shadow-sm ring-1 ring-orange-900/10">
                 <div class="flex flex-col items-center justify-center">
                     <div class="mb-3">
                         <lord-icon
@@ -93,7 +93,7 @@
                     <h3 class="text-lg text-orange-900">مستفيد من برامج المركز</h3>
                 </div>
             </div>
-            <div class="row-span-2 col-start-2 row-start-3 bg-rose-100 px-5 pt-5 rounded-lg flex justify-center items-center">
+            <div class="row-span-2 col-start-2 row-start-3 bg-rose-100 px-5 pt-5 rounded-lg flex justify-center items-center shadow-sm ring-1 ring-rose-900/10">
                 <div class="flex flex-col items-center justify-center">
                     <div class="mb-3">
                         <lord-icon
