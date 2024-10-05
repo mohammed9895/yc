@@ -19,10 +19,6 @@
         "
         rel="stylesheet">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-
     <style>
         body {
             font-family: 'IBM Plex Sans Arabic', sans-serif;
@@ -62,7 +58,7 @@
         });
 
         $(document).ready(function() {
-            $('.owl-carousel').owlCarousel({
+            $('.owl-carousel-tmakon').owlCarousel({
                 rtl: true,
                 loop: true,
                 margin: 20,
@@ -78,9 +74,23 @@
                     }
                 }
             });
-
-
-
+            $('.owl-carousel-timeline').owlCarousel({
+                rtl: true,
+                nav: false,
+                margin:0,
+                padding: 20,
+                responsive: {
+                    0: {
+                        items: 1
+                    },
+                    600: {
+                        items: 3
+                    },
+                    1000: {
+                        items: 4
+                    }
+                }
+            });
             $(document).scroll(function() {
                 var $nav = $(".navbar-fixed-top");
                 $nav.toggleClass('scrolled', $(this).scrollTop() > $nav.height());
@@ -97,12 +107,6 @@
 
         gtag('config', 'G-N19JTR2SPE');
     </script>
-
-    <!-- Alpine v3 -->
-    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
-
-    <!-- Focus plugin -->
-    <script defer src="https://unpkg.com/@alpinejs/focus@3.x.x/dist/cdn.min.js"></script>
 
     <script src="https://cdn.lordicon.com/lordicon.js"></script>
 

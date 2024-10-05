@@ -28,6 +28,7 @@ module.exports = {
             animation: {
                 marquee: 'marquee 25s linear infinite',
                 'border-spin': 'border-spin 7s linear infinite',
+                'infinite-scroll': 'infinite-scroll 25s linear infinite',
             },
             keyframes: {
                 marquee: {
@@ -38,6 +39,10 @@ module.exports = {
                     '100%': {
                         transform: 'rotate(-360deg)',
                     },
+                },
+                'infinite-scroll': {
+                    from: { transform: 'translateX(0)' },
+                    to: { transform: 'translateX(-100%)' },
                 },
             },
         },
