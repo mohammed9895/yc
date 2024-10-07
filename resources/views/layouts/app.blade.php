@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="h-full">
     <head>
         <meta charset="utf-8">
 
@@ -10,15 +10,17 @@
         <title>{{ config('app.name') }}</title>
 
         <style>[x-cloak] { display: none !important; }</style>
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
+        @filamentStyles
+        @vite('resources/css/app.css')
         @livewireStyles
         @livewireScripts
         @stack('scripts')
     </head>
 
-    <body class="antialiased">
+    <body class="antialiased flex h-full flex-col">
         {{ $slot }}
-
+        @filamentScripts
+        @vite('resources/js/app.js')
         @livewire('notifications')
     </body>
 </html>

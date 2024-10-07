@@ -1,4 +1,4 @@
-<nav class="bg-white">
+<nav class="relative z-50 ">
     <div class="container mx-auto py-12">
         <div class="flex justify-between items-center">
             <div>

@@ -30,7 +30,7 @@ class CpPanelProvider extends PanelProvider
         return $panel
             ->default()
             ->id('cp')
-            ->registration(\App\Filament\Cp\Pages\Auth\Register::class)
+            ->registration(Register::class)
             ->path('cp')
             ->login()
             ->colors([

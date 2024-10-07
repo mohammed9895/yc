@@ -32,6 +32,7 @@
         <div wire:ignore wire:ignore.self x-data="{
                 init () {
                 availabilityJson = JSON.parse('{{$this->availabilityJson}}');
+                console.log(availabilityJson)
                 const picker = new easepick.create({
             element: $refs.datepicker,
             css: [
@@ -85,7 +86,7 @@
             <h2 class="text-xl font-medium">2. Choose a slot</h2>
             <div class="mt-6">
                 <div class="grid grid-cols-3 md:grid-cols-5 gap-8">
-                    @if($this->times->isNotEmpty())
+                    @if(!is_null($this->times) && $this->times->isNotEmpty())
                         @foreach($this->times as $time)
                             <button wire:click="setTime('{{ $time }}')" type="button" @class(['py-3 px-4 text-sm border border-slate-200 rounded-lg text-center hover:bg-gray-50/75 cursor-pointer', 'bg-slate-800 text-white hover:bg-slate-700' => in_array($time,$form->slots)])>
                                 {{ $time }}

@@ -112,7 +112,6 @@ class BookHallModel extends ModalComponent
     public function availabilityJson()
     {
         $AvailabilityTransformered  =  new AvailabilityTransformer($this->availability);
-        ray($AvailabilityTransformered);
         return $AvailabilityTransformered;
     }
 

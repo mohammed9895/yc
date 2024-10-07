@@ -2,7 +2,7 @@
     <div class="container mx-auto">
         <div class="grid grid-cols-2 items-center gap-10">
             <div class="space-y-10">
-                <h1 class="text-7xl font-bold text-black">اطلق العنان لإمكانياتك</h1>
+                <h1 class="text-7xl font-bold text-[#000f4a]">اطلق العنان لإمكانياتك</h1>
                 <p class="text-lg text-gray-600">اكتشف عالم المعرفة و النمو من خلال برامجنا التعليمية و دوراتنا و ورش العمل</p>
                 <a href="#" class="inline-block px-16 py-4 text-lg text-white bg-[#720AD8] rounded-lg">إبدأ الآن</a>
             </div>
