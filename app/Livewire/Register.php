@@ -34,6 +34,9 @@ class Register extends Component implements HasForms
 
     public function mount(): void
     {
+        if (Filament::auth()->check()) {
+            redirect()->intended(Filament::getUrl());
+        }
         $this->form->fill();
     }
 

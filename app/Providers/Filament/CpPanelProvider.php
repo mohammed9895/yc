@@ -2,6 +2,7 @@
 
 namespace App\Providers\Filament;
 
+use App\Filament\Cp\Pages\Auth\Login;
 use App\Livewire\Register;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\DisableBladeIconComponents;
@@ -31,6 +32,7 @@ class CpPanelProvider extends PanelProvider
             ->default()
             ->id('cp')
             ->registration(Register::class)
+            ->login(\App\Livewire\Login::class)
             ->path('cp')
             ->login()
             ->colors([

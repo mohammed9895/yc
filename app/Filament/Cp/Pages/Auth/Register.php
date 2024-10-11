@@ -24,7 +24,7 @@ use Illuminate\Support\HtmlString;
 class Register extends BaseRegister
 {
 
-    protected static string $view = 'filament-panels::pages.auth.register';
+    protected static string $view = 'filament.cp.pages.auth.register';
     protected function getForms(): array
     {
         return [
@@ -158,9 +158,7 @@ class Register extends BaseRegister
                                     Checkbox::make('agreed_on_terms')->label(new HtmlString(''.__('I agree with the').' <a href="/termsandconditions" target="_blank" class="text-primary-600">'.__('terms and conditions').'</a>'))->inline()->required()
                                 ])
                         ])
-                            ->columns([
-                                'sm' => 1,
-                            ])
+                            ->columnSpanFull()
                             ->columnSpan([
                                 'sm' => 1,
                             ])

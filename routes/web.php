@@ -18,7 +18,7 @@ use JeffGreco13\FilamentBreezy\Http\Livewire\Auth\ResetPassword;
 |
 */
 
-Route::get('/',fn () => phpinfo());
+Route::get('/',[HomeController::class, 'index']);
 
 Route::get('/language/{locale}', function ($locale) {
     Session::put('locale', $locale);
