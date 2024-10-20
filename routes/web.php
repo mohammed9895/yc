@@ -20,6 +20,8 @@ use JeffGreco13\FilamentBreezy\Http\Livewire\Auth\ResetPassword;
 
 Route::get('/',[HomeController::class, 'index']);
 
+Route::get('/verify-phone', \App\Livewire\Auth\VerifyPhone::class)->name('verify-phone');
+
 Route::get('/language/{locale}', function ($locale) {
     Session::put('locale', $locale);
     session()->get('locale');
@@ -45,3 +47,5 @@ Route::get('/manjam/talent_type/{talent_type}', \App\Livewire\Manjam\TalentType:
 // MANJAM
 Route::get('/manjam/categories', [CategoriesController::class, 'index'])->name('manjam.all_categories');
 Route::get('/manjam/categories/{talent_type}', [CategoriesController::class, 'show']);
+
+
