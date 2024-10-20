@@ -32,9 +32,8 @@ class CpPanelProvider extends PanelProvider
             ->default()
             ->id('cp')
             ->registration(Register::class)
-            ->login(\App\Livewire\Login::class)
+            ->login(Login::class)
             ->path('cp')
-            ->login()
             ->colors([
                 'primary' => '#4a1d96',
                 'gray' => Color::Slate,

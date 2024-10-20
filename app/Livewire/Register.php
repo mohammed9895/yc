@@ -22,12 +22,14 @@ use Filament\Forms\Form;
 use Filament\Http\Responses\Auth\Contracts\RegistrationResponse;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\HtmlString;
+use Livewire\Attributes\Layout;
 use Livewire\Component;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Http;
 
 class Register extends Component implements HasForms
 {
+
     use InteractsWithForms;
 
     public ?array $data = [];
@@ -222,6 +224,7 @@ class Register extends Component implements HasForms
         }
     }
 
+    #[Layout('layouts.auth')]
     public function render()
     {
         return view('livewire.register');
