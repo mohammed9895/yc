@@ -5,7 +5,7 @@ namespace App\Notifications;
 use Illuminate\Notifications\Notification;
 use Illuminate\Notifications\Messages\VonageMessage;
 
-class SendVerifySMS extends Notification
+class   SendVerifySMS extends Notification
 {
     public function __construct()
     {
