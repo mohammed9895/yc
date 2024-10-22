@@ -25,7 +25,8 @@ use Illuminate\Support\HtmlString;
 class RegisterYourCompany extends Page implements HasForms, HasTable
 
 {
-    use InteractsWithForms, HasPageShield, InteractsWithTable;
+    use InteractsWithForms, InteractsWithTable;
+
     protected static ?string $navigationIcon = 'heroicon-o-document-text';
 
     protected static string $view = 'filament.pages.register-your-company';
@@ -161,7 +162,6 @@ class RegisterYourCompany extends Page implements HasForms, HasTable
             $orginal['others'] = $orginal['others'];
         }
         $compnay = Company::create($orginal);
-        auth()->user()->assignRole('company');
         if ($compnay) {
             $sms = new SmsMessage;
             if (auth()->user()->preferred_language == 'ar') {

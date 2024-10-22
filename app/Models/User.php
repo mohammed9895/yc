@@ -3,7 +3,9 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Filament\Models\Contracts\FilamentUser;
 use Filament\Models\Contracts\HasAvatar;
+use Filament\Panel;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -11,15 +13,23 @@ use Laravel\Sanctum\HasApiTokens;
 use LaraZeus\Bolt\Models\Concerns\BelongToBolt;
 use Spatie\Permission\Traits\HasRoles;
 
-class User extends Authenticatable implements HasAvatar
+class User extends Authenticatable implements HasAvatar, FilamentUser
 {
     use HasApiTokens, HasFactory, Notifiable, HasRoles;
     use BelongToBolt;
 
-//    public function canAccessFilament(): bool
-//    {
-//        return str_ends_with($this->email, '@yc.om');
-//    }
+    public function canAccessFilament(): bool
+    {
+        return str_ends_with($this->email, '@yc.om');
+    }
+
+    public function canAccessPanel(Panel $panel): bool
+    {
+        return match ($panel->getId()) {
+            'admin' => $this->hasRole('super-admin'),
+            default => true,
+        };
+    }
 
 
     /**

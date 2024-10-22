@@ -7,7 +7,7 @@ use Filament\Pages\Page;
 
 class BookHall extends Page
 {
-    use HasPageShield;
+//    use HasPageShield;
 
     protected static ?string $navigationIcon = 'heroicon-o-tag';
 

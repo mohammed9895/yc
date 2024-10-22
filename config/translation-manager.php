@@ -90,7 +90,7 @@ return [
     |
     */
 
-    'quick_translate_navigation_registration' => true,
+    'quick_translate_navigation_registration' => false,
 
     /*
     |--------------------------------------------------------------------------

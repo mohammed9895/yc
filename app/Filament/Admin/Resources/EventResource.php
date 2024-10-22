@@ -142,11 +142,11 @@ class EventResource extends Resource
                         $from = Carbon::parse($record->start);
                         $to = Carbon::parse($record->end);
 
-                        $link = Link::create($record->title, $from, $to)
-                            ->description($record->reasone)
-                            ->address('Youth Center ' . $record->hall->name);
+//                        $link = Link::create($record->title, $from, $to)
+//                            ->description($record->reasone)
+//                            ->address('Youth Center ' . $record->hall->name);
 
-                        Mail::to($user->email)->send(new HallConfirmationMail($record->hall->name, $user, $record->start, $record->end, $link->ics()));
+//                        Mail::to($user->email)->send(new HallConfirmationMail($record->hall->name, $user, $record->start, $record->end, $link->ics()));
                         Event::where('id', $record->id)->update(['status' => 1]);
                     })
                     ->icon('heroicon-o-check-circle')

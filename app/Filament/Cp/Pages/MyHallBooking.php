@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Auth;
 
 class MyHallBooking extends Page implements HasTable
 {
-    use HasPageShield;
+//    use HasPageShield;
 
     protected static ?string $navigationIcon = 'heroicon-o-document-text';
 

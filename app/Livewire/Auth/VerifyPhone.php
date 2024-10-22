@@ -2,16 +2,19 @@
 
 namespace App\Livewire\Auth;
 
+use App\Models\User;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Http;
 use Livewire\Attributes\Layout;
+use Livewire\Attributes\Validate;
 use Livewire\Component;
 use const _PHPStan_49641e245\__;
 
 class VerifyPhone extends Component
 {
 
-    public $user;
+    public User $user;
+    #[Validate('required|numeric|digits:5')]
     public $otp;
 
     public function mount()
@@ -22,9 +25,11 @@ class VerifyPhone extends Component
     public function verify()
     {
         $verified_code = $this->user->phone_verified_code;
-
-        if ($verified_code === $this->otp && $this->user->phone_verified_at == null) {
-            $this->user->phone_verified_at = now();
+//        dd($this->user->phone_verified_at);
+        if ($verified_code == $this->otp && !$this->user->phone_verified_at) {
+            $this->user->update([
+                'phone_verified_at' => now()
+            ]);
             $this->redirect('/cp');
         }
         else {
@@ -51,7 +56,7 @@ class VerifyPhone extends Component
 
         $response = Http::post('https://www.ismartsms.net/iBulkSMS/HttpWS/SMSDynamicAPI.aspx?UserId=' . env('User_ID_OTP',
                 'youthsmsweb') . '&Password=' . env('OTP_Password',
-                'L!ulid80') . '&MobileNo=' . $orginal['phone'] . '&Message=' . $messageSms . '&PushDateTime=10/12/2022 02:03:00&Lang=' . $lang . '&FLashSMS=N');
+                'L!ulid80') . '&MobileNo=' . $this->user->phone . '&Message=' . $messageSms . '&PushDateTime=10/12/2022 02:03:00&Lang=' . $lang . '&FLashSMS=N');
 
         $this->reset();
     }

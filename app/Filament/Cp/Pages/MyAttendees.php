@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Auth;
 
 class MyAttendees extends Page implements HasTable
 {
-    use HasPageShield;
+
 
     protected static ?string $navigationIcon = 'heroicon-o-document-text';
 

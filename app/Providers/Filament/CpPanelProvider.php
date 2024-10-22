@@ -3,6 +3,7 @@
 namespace App\Providers\Filament;
 
 use App\Filament\Cp\Pages\Auth\Login;
+use App\Http\Middleware\VerifyPhone;
 use App\Livewire\Auth\Register;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\DisableBladeIconComponents;
@@ -57,13 +58,14 @@ class CpPanelProvider extends PanelProvider
                 SubstituteBindings::class,
                 DisableBladeIconComponents::class,
                 DispatchServingFilamentEvent::class,
+                VerifyPhone::class,
             ])
             ->authMiddleware([
                 Authenticate::class,
             ])->viteTheme('resources/css/filament/cp/theme.css')
 //            ->plugin(SpatieLaravelTranslatablePlugin::make())
             ->plugin(TranslationManagerPlugin::make())
-            ->plugin(BoltPlugin::make())
+//            ->plugin(BoltPlugin::make())
             ->plugin(
                 BreezyCore::make()->myProfile(
                     shouldRegisterNavigation: true, // Adds a main navigation item for the My Profile page (default = false)

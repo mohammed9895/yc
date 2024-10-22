@@ -4,9 +4,9 @@
             class="font-medium text-[#4a1d96] hover:underline" href="/cp/register">Register</a> <!-- -->your account Now.
     </p>
     <div class="mt-5">
-        <form wire:submit="register">
+        <form wire:submit="authenticate">
             {{ $this->form }}
-            <x-filament::button class="mt-5 block w-full">
+            <x-filament::button class="mt-5 block w-full" type="submit">
                 {{ __('login') }}
             </x-filament::button>
         </form>

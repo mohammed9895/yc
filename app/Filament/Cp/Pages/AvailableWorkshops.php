@@ -8,7 +8,7 @@ use Filament\Pages\Page;
 class AvailableWorkshops extends Page
 {
 
-    use HasPageShield;
+//    use HasPageShield;
 
     protected static ?string $navigationIcon = 'heroicon-o-briefcase';
 

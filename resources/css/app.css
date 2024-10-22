@@ -1,3 +1,135 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+/*
+  Based on TailwindCSS recommendations,
+  consider using classes instead of the `@apply` directive
+  @see https://tailwindcss.com/docs/reusing-styles#avoiding-premature-abstraction
+*/
+:root {
+    --def-transition-duration: 0.2s;
+    --color-cloudy: #5f7c9c;
+    --color-cloudy-shade: #56708c;
+    --color-sunny: #3f7abc;
+    --color-sunny-shade: #396ea9;
+    --color-rainy: #26323e;
+    --color-rainy-shade: #222d38;
+    --color-thunderstorms: #101c29;
+    --color-thunderstorms-shade: #0e1925;
+}
+.accordion {
+    @apply w-full flex gap-4 justify-center mx-16 my-0;
+}
+.accordion--item p {
+    @apply m-0;
+}
+.cloudy {
+    background: rgb(34,193,195);
+    background: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(253,187,45,1) 100%);
+}
+.cloudy .readings li {
+    @apply bg-[color:var(--color-cloudy-shade)];
+}
+.sunny {
+    background: var(--color-sunny) url(images/sunny@c.png);
+}
+.sunny .readings li {
+    @apply bg-[color:var(--color-sunny-shade)];
+}
+.rainy {
+    background: var(--color-rainy) url(images/rainy@c.png);
+}
+.rainy .readings li {
+    @apply bg-[color:var(--color-rainy-shade)];
+}
+.thunderstorms {
+    background: var(--color-thunderstorms) url(images/thunderstorms@c.png);
+}
+.thunderstorms .readings li {
+    @apply bg-[color:var(--color-thunderstorms-shade)];
+}
+.accordion--item {
+    @apply bg-no-repeat bg-[center_center] bg-[200%] flex flex-col justify-between min-h-[30rem] flex-[0_0_10rem] cursor-pointer relative overflow-hidden pt-3 rounded-2xl;
+}
+.date li:nth-child(1) {
+    @apply text-lg mb-2;
+}
+.date li:nth-child(2) {
+    @apply text-[0.8125rem];
+}
+.temp {
+    @apply flex flex-col gap-6 opacity-0;
+}
+.temp p {
+    @apply text-[2.1875rem] font-extralight mb-2;
+}
+.temp--values {
+    @apply flex items-baseline gap-2 text-lg font-bold;
+}
+.temp--values li:nth-child(2) {
+    @apply text-[rgba(255,255,255,0.48)];
+}
+.temp .temp--values li:nth-child(1) {
+    @apply text-[2.1875rem];
+}
+.temp .temp--values li:nth-child(2) {
+    @apply text-[1.5625rem];
+}
+.readings {
+    @apply flex gap-4 w-[28rem] opacity-0;
+}
+.readings li {
+    @apply flex flex-col items-center gap-2 w-full text-center px-8 py-4 rounded-xl;
+}
+.readings li p:nth-of-type(1) {
+    @apply text-[0.8125rem] font-bold;
+}
+.readings li p:nth-of-type(2) {
+    @apply text-[0.8125rem] text-[rgba(255,255,255,0.48)];
+}
+.bottom-temp {
+    @apply absolute bottom-8;
+}
+.opened {
+    @apply basis-[32rem] cursor-auto;
+}
+.opened .date li:nth-child(2) {
+    @apply text-[rgba(255,255,255,0.48)];
+}
+.opened .temp,
+.opened .readings {
+    @apply opacity-100;
+}
+.opened .bottom-temp {
+    @apply opacity-0;
+}
+.bottom-image img {
+    transform: scale(2);
+}
+.opened .bottom-image img {
+    transform: scale(1.4);
+    width: 200px;
+    margin-bottom: 50px;
+}
+.opened .hidden {
+    display: block;
+}
+@layer utilities {
+    /* Act as a border */
+    .card-wrapper {
+        @apply relative overflow-hidden rounded-full bg-gradient-to-b from-slate-200 to-slate-400;
+    }
+    /* Gradient */
+    .card-wrapper::before {
+        background: conic-gradient(
+            rgba(244, 114, 182, 1) 0deg,
+            rgba(192, 132, 252, 1) 0deg,
+            transparent 80deg
+        );
+        @apply absolute left-[-25%] top-[-25%] h-[150%] w-[150%] animate-border-spin content-[''];
+    }
+    /* Body */
+    .card-content {
+        @apply absolute left-[2px] top-[2px] h-[calc(100%-4px)] w-[calc(100%-4px)] rounded-full bg-gradient-to-b from-slate-800 to-slate-900;
+    }
+}

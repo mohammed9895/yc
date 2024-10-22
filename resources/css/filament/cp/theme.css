@@ -1,9 +1,3 @@
 @import '/vendor/filament/filament/resources/css/theme.css';
 
 @config 'tailwind.config.js';
-
-
-:host {
-    --day-width: 60px;
-    --day-height: 60px;
-}

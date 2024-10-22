@@ -9,7 +9,9 @@ use App\Booking\Slot;
 use App\Livewire\Forms\CheckoutForm;
 use App\Models\Event;
 use App\Models\Hall;
+use App\Notifications\SmsMessage;
 use Carbon\Carbon;
+use Filament\Notifications\Notification;
 use Livewire\Attributes\Computed;
 use LivewireUI\Modal\ModalComponent;
 
@@ -36,7 +38,27 @@ class BookHallModel extends ModalComponent
 
         $event = $this->createEvent();
 
-        return redirect()->route('events.show', $event);
+        $this->closeModal();
+
+        Notification::make()
+            ->title(__('You have booked the hall successfully!'))
+            ->success()
+            ->persistent()
+            ->send();
+
+        $sms = new SmsMessage;
+        $user = auth()->user();
+        if ($user->preferred_language == 'ar') {
+            $sms->to($user->phone)
+                ->message('تم استلام طلبك حجزك ل ' . $this->hall->name . ' سوف يتم تأكيد حجزك قريبًا')
+                ->lang($user->preferred_language)
+                ->send();
+        } else {
+            $sms->to($user->phone)
+                ->message("Your reservation has been received for " . $this->hall->name . ", It will be confirmed soon.")
+                ->lang($user->preferred_language)
+                ->send();
+        }
     }
 
     protected function createEvent()
@@ -79,7 +101,7 @@ class BookHallModel extends ModalComponent
             $differenceInHours = $lastTimeCarbon->diffInMinutes($newTimeCarbon);
             // Add the new time if the difference is exactly 1 hour
             if ($differenceInHours === 30.0) {
-                if (count($this->form->slots) < 4) {
+                if (count($this->form->slots) < 8) {
                     $this->form->slots[] = $time;
                 }
             }else{

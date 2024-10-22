@@ -3,7 +3,10 @@
 namespace App\Providers;
 
 use Filament\Support\Assets\Js;
+use Filament\Support\Colors\Color;
 use Filament\Support\Facades\FilamentAsset;
+use Filament\Support\Facades\FilamentColor;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -28,6 +31,9 @@ class AppServiceProvider extends ServiceProvider
                 ->module(),
             Js::make('picker','https://cdn.jsdelivr.net/npm/@easepick/lock-plugin@1.2.1/dist/index.umd.min.js')
                 ->module(),
+        ]);
+        FilamentColor::register([
+            'primary' => Color::Amber,
         ]);
     }
 }

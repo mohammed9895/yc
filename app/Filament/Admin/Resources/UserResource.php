@@ -69,22 +69,21 @@ class UserResource extends Resource
                     ->tel()
                     ->required()
                     ->maxLength(255),
-                Forms\Components\FileUpload::make('avatar')->label(__('filament::users.avatar')),
+                Forms\Components\FileUpload::make('avatar_url')->label(__('filament::users.avatar')),
                 Forms\Components\Radio::make('citizen')->label(__('filament::users.citizin'))->options([
                     0 => __('filament::users.citizin'),
                     1 => __('filament::users.foreigner'),
                 ])->required(),
 
 
-                Forms\Components\Radio::make('role')
+
+
+                Forms\Components\Select::make('roles')
                     ->label(__('Role'))
-                    ->options(Role::all()
-                        ->pluck('name', 'id'))
-                    ->dehydrated(false)
-                    ->afterStateUpdated(function (?Model $record, $state) {
-                        $record->assignRole($state);
-                    })
-                    ->required(),
+                    ->relationship('roles', 'name')
+                    ->multiple()
+                    ->preload()
+                    ->searchable(),
 
                 Forms\Components\Radio::make('gender')->label(__('filament::users.sex'))
                     ->options([
@@ -134,16 +133,28 @@ class UserResource extends Resource
                 Tables\Columns\TextColumn::make('phone')->searchable()->sortable(),
                 Tables\Columns\TextColumn::make('disability.name')->searchable()->sortable(),
                 TextColumn::make('birth_date')->label(__('Age'))->formatStateUsing(fn (string $state): string => Carbon::parse($state)->age),
-                Tables\Columns\BadgeColumn::make('gender')
-                    ->enum([
-                        0 => 'Male',
-                        1 => 'Female'
-                    ])->searchable()->sortable(),
-                Tables\Columns\BadgeColumn::make('citizen')
-                    ->enum([
-                        0 => 'Omani',
-                        1 => 'Foreigner'
-                    ])->searchable()->sortable(),
+                Tables\Columns\TextColumn::make('gender')
+                    ->badge()
+                    ->formatStateUsing(function (string $state) {
+                       if ($state == 0) {
+                           return 'Male';
+                       }
+                       else {
+                           return 'Female';
+                       }
+                    })
+                    ->searchable()
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('citizen')
+                    ->badge()
+                    ->formatStateUsing(function (string $state) {
+                        if ($state == 0) {
+                            return 'Omani';
+                        }
+                        else {
+                            return 'Foreigner';
+                        }
+                    })->searchable()->sortable(),
                 Tables\Columns\TextColumn::make('country.name')->searchable()->sortable(),
                 Tables\Columns\TextColumn::make('province.name')->searchable()->sortable(),
                 Tables\Columns\TextColumn::make('state.name')->searchable()->sortable(),

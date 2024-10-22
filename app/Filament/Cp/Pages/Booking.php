@@ -26,7 +26,7 @@ use setasign\Fpdi\Tfpdf\Fpdi;
 
 class Booking extends Page implements HasTable
 {
-    use HasPageShield;
+//    use HasPageShield;
 
     protected static ?string $navigationIcon = 'heroicon-o-folder';
 

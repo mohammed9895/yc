@@ -10,7 +10,6 @@ use Illuminate\Support\Facades\Storage;
 
 class TendersList extends Page
 {
-    use HasPageShield;
 
     protected static ?string $navigationIcon = 'heroicon-o-document-text';
 

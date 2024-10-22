@@ -4,6 +4,7 @@ use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Frontend\Manjam\CategoriesController;
 use App\Http\Livewire\Manjam\TalentType;
 use App\Notifications\SmsMessage;
+use Filament\Http\Middleware\Authenticate;
 use Illuminate\Support\Facades\Route;
 use JeffGreco13\FilamentBreezy\Http\Livewire\Auth\ResetPassword;
 
@@ -20,7 +21,7 @@ use JeffGreco13\FilamentBreezy\Http\Livewire\Auth\ResetPassword;
 
 Route::get('/',[HomeController::class, 'index']);
 
-Route::get('/verify-phone', \App\Livewire\Auth\VerifyPhone::class)->name('verify-phone');
+Route::get('/verify-phone', \App\Livewire\Auth\VerifyPhone::class)->name('verify-phone')->middleware(Authenticate::class);
 
 Route::get('/language/{locale}', function ($locale) {
     Session::put('locale', $locale);

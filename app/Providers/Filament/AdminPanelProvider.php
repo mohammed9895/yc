@@ -80,7 +80,9 @@ class AdminPanelProvider extends PanelProvider
                 ),
             )->plugins([
                 SpatieLaravelTranslatablePlugin::make()->defaultLocales(['ar', 'en']),
-                BoltPlugin::make()
+                BoltPlugin::make(),
+                 \BezhanSalleh\FilamentShield\FilamentShieldPlugin::make(),
+                \BezhanSalleh\FilamentGoogleAnalytics\FilamentGoogleAnalyticsPlugin::make(),
             ]);
     }
 }
