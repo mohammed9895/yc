@@ -18,7 +18,7 @@
     --color-thunderstorms-shade: #0e1925;
 }
 .accordion {
-    @apply w-full flex gap-4 justify-center mx-16 my-0;
+    @apply w-full flex gap-4 justify-center mx-auto my-0;
 }
 .accordion--item p {
     @apply m-0;

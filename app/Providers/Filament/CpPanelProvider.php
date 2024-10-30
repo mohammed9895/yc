@@ -33,6 +33,7 @@ class CpPanelProvider extends PanelProvider
             ->id('cp')
             ->registration(Register::class)
             ->login(Login::class)
+            ->brandLogo(asset('images/yc-logo-colored.svg'))
             ->path('cp')
             ->colors([
                 'primary' => '#4a1d96',

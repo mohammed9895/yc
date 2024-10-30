@@ -1,11 +1,12 @@
 <section class="mt-32">
     <div class="container mx-auto">
         <div class="grid grid-cols-6 grid-rows-3 gap-4">
-            <div class="col-span-4 bg-white shadow-sm ring-1 ring-black/5 data-[dark]:bg-gray-800 data-[dark]:ring-white/15 px-5 py-20 rounded-lg relative overflow-hidden flex justify-center items-center h-72">
+            <div class="col-span-4 bg-white shadow-sm ring-1 ring-black/5 data-[dark]:bg-gray-800 data-[dark]:ring-white/15 px-5 py-20 rounded-lg relative overflow-hidden flex flex-col md:flex-row justify-center items-center h-72">
                 <div class="w-full h-full absolute top-0  invert" style="background-image: url('{{ asset('images/rouneded-lg.webp') }}'); background-position: top center;
     background-repeat: no-repeat;
     background-size: 102% auto;"></div>
                 <lord-icon
+                    class="hidden md:block"
                     src="https://cdn.lordicon.com/eovxmnei.json"
                     trigger="loop"
                     colors="primary:#730ad9,secondary:#d00254"

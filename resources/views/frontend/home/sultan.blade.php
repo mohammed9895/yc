@@ -1,8 +1,8 @@
 <section class="">
     <div class="container mx-auto">
-        <div class="grid grid-cols-4 grid-rows-5 gap-4">
-            <div class="col-span-2 row-span-2 bg-gray-50/60 px-5 pt-5 rounded-lg shadow-sm ring-1 ring-black/5">
-                <div class="flex">
+        <div class="grid grid-cols-2 md:grid-cols-4 md:grid-rows-5 gap-4">
+            <div class="col-span-2 md:row-span-2 bg-gray-50/60 px-5 pt-5 rounded-lg shadow-sm ring-1 ring-black/5">
+                <div class="flex flex-col md:flex-row">
                     <div>
                         <div class="size-20 items-center justify-center">
                             <svg class="size-14 fill-[#720AD8] bg-[#720AD8]/30 p-4 rounded-lg" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -25,36 +25,26 @@
                     </div>
                 </div>
             </div>
-            <div class="row-span-2 col-start-3 bg-green-100 px-5 pt-5 rounded-lg flex justify-center items-center shadow-sm ring-1 ring-green-900/10">
+            <div class="md:row-span-2 md:col-start-3 bg-green-100 px-5 pt-5 rounded-lg flex justify-center items-center shadow-sm ring-1 ring-green-900/10">
                 <div class="flex flex-col items-center justify-center">
                     <div class="mb-3">
-                        <lord-icon
-                            src="https://cdn.lordicon.com/wuvorxbv.json"
-                            trigger="loop"
-                            colors="primary:#14532d,secondary:#14532d"
-                            style="width:120px;height:120px">
-                        </lord-icon>
+                        {!! $statistices[1]->icon !!}
                     </div>
-                    <h1 class="text-7xl font-bold text-green-900">376387+</h1>
-                    <h3 class="text-lg text-green-900">برنامج وورشة تدريبة</h3>
+                    <h1 class="text-7xl font-bold text-green-900">{{ $statistices[1]->number }}</h1>
+                    <h3 class="text-lg text-green-900">{{ $statistices[1]->title }}</h3>
                 </div>
             </div>
-            <div class="row-span-2 col-start-1 row-start-3 bg-cyan-100 px-5 pt-5 rounded-lg flex justify-center items-center shadow-sm ring-1 ring-cyan-900/10">
+            <div class="md:row-span-2 md:col-start-1 md:row-start-3 bg-cyan-100 px-5 pt-5 rounded-lg flex justify-center items-center shadow-sm ring-1 ring-cyan-900/10">
                 <div class="flex flex-col items-center justify-center">
                     <div class="mb-3">
-                        <lord-icon
-                            src="https://cdn.lordicon.com/uecgmesg.json"
-                            trigger="loop"
-                            colors="primary:#174e63,secondary:#174e63"
-                            style="width:120px;height:120px">
-                        </lord-icon>
+                        {!! $statistices[0]->icon !!}
                     </div>
-                    <h1 class="text-7xl font-bold text-cyan-900">200+</h1>
-                    <h3 class="text-lg text-cyan-900">مؤسسة صغيرة و متوسطة</h3>
+                    <h1 class="text-7xl font-bold text-cyan-900">{{ $statistices[0]->number }}</h1>
+                    <h3 class="text-lg text-cyan-900">{{ $statistices[0]->title }}</h3>
                 </div>
             </div>
-            <div class="col-span-2 row-span-2 col-start-3 row-start-3 bg-gray-50/60 px-5 pt-5 rounded-lg shadow-sm ring-1 ring-black/5">
-                <div class="flex items-center">
+            <div class="col-span-2 md:row-span-2 md:col-start-3 row-start-3 bg-gray-50/60 px-5 pt-5 rounded-lg shadow-sm ring-1 ring-black/5">
+                <div class="flex flex-col md:flex-row items-center">
                     <div class="ml-4">
                         <img src="{{ asset('images/y3.png') }}" width="800" alt="">
                     </div>
@@ -79,32 +69,22 @@
                     </div>
                 </div>
             </div>
-            <div class="row-span-2 col-start-4 row-start-1 bg-orange-100 px-5 pt-5 rounded-lg flex justify-center items-center shadow-sm ring-1 ring-orange-900/10">
+            <div class="md:row-span-2 md:col-start-4 md:row-start-1 bg-orange-100 px-5 pt-5 rounded-lg flex justify-center items-center shadow-sm ring-1 ring-orange-900/10">
                 <div class="flex flex-col items-center justify-center">
                     <div class="mb-3">
-                        <lord-icon
-                            src="https://cdn.lordicon.com/wzrwaorf.json"
-                            trigger="loop"
-                            colors="primary:#7c2d12,secondary:#7c2d12"
-                            style="width:120px;height:120px">
-                        </lord-icon>
+                        {!! $statistices[3]->icon !!}
                     </div>
-                    <h1 class="text-7xl font-bold text-orange-900">736736+</h1>
-                    <h3 class="text-lg text-orange-900">مستفيد من برامج المركز</h3>
+                    <h1 class="text-7xl font-bold text-orange-900">{{ $statistices[3]->number }}</h1>
+                    <h3 class="text-lg text-orange-900">{{ $statistices[3]->title }}</h3>
                 </div>
             </div>
-            <div class="row-span-2 col-start-2 row-start-3 bg-rose-100 px-5 pt-5 rounded-lg flex justify-center items-center shadow-sm ring-1 ring-rose-900/10">
+            <div class="md:row-span-2 md:col-start-2 md:row-start-3 bg-rose-100 px-5 pt-5 rounded-lg flex justify-center items-center shadow-sm ring-1 ring-rose-900/10">
                 <div class="flex flex-col items-center justify-center">
                     <div class="mb-3">
-                        <lord-icon
-                            src="https://cdn.lordicon.com/pagmnkiz.json"
-                            trigger="loop"
-                            colors="primary:#881337,secondary:#881337"
-                            style="width:120px;height:120px">
-                        </lord-icon>
+                        {!! $statistices[2]->icon !!}
                     </div>
-                    <h1 class="text-7xl font-bold text-rose-900">130000+</h1>
-                    <h3 class="text-lg text-rose-900">مستهدف في برامج المركز</h3>
+                    <h1 class="text-7xl font-bold text-rose-900">{{ $statistices[2]->number }}</h1>
+                    <h3 class="text-lg text-rose-900">{{ $statistices[2]->title }}</h3>
                 </div>
             </div>
         </div>

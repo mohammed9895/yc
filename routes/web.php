@@ -19,7 +19,7 @@ use JeffGreco13\FilamentBreezy\Http\Livewire\Auth\ResetPassword;
 |
 */
 
-Route::get('/',[HomeController::class, 'index']);
+Route::get('/',[HomeController::class, 'index'])->name('home.index');
 
 Route::get('/verify-phone', \App\Livewire\Auth\VerifyPhone::class)->name('verify-phone')->middleware(Authenticate::class);
 
@@ -31,15 +31,15 @@ Route::get('/language/{locale}', function ($locale) {
 
 Route::get('/paths/{id}', [HomeController::class, 'path']);
 
-Route::get('/tmakon', [HomeController::class, 'tmakon']);
-Route::get('/incubators', [HomeController::class, 'incubators']);
-Route::get('/programs', [HomeController::class, 'programs']);
+Route::get('/tmakon', [HomeController::class, 'tmakon'])->name('home.tmakon');
+Route::get('/incubators', [HomeController::class, 'incubators'])->name('home.incubators');
+Route::get('/programs', [HomeController::class, 'programs'])->name('home.programs');
 
-Route::get('/contact', [HomeController::class, 'contact']);
+Route::get('/contact', [HomeController::class, 'contact'])->name('home.contact');
 
-Route::get('/termsandconditions', function () {
+Route::get('/terms-and-conditions', function () {
     return view('frontend.terms');
-});
+})->name('terms-and-conditions');
 
 Route::view('/manjam', 'frontend.manjam');
 

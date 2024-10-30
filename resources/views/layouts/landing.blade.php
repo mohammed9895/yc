@@ -74,6 +74,23 @@
                     }
                 }
             });
+            $('.owl-carousel-main-hero').owlCarousel({
+                rtl: true,
+                nav: false,
+                margin:10,
+                padding: 20,
+                responsive: {
+                    0: {
+                        items: 2
+                    },
+                    600: {
+                        items: 2
+                    },
+                    1000: {
+                        items: 2
+                    }
+                }
+            });
             $('.owl-carousel-timeline').owlCarousel({
                 rtl: true,
                 nav: false,

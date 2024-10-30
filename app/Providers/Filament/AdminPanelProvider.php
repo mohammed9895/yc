@@ -35,6 +35,7 @@ class AdminPanelProvider extends PanelProvider
                 'primary' => '#4a1d96',
                 'gray' => Color::Slate,
             ])
+            ->brandLogo(asset('images/yc-logo-colored.svg'))
             ->discoverResources(in: app_path('Filament/Admin/Resources'), for: 'App\\Filament\\Admin\\Resources')
             ->discoverPages(in: app_path('Filament/Admin/Pages'), for: 'App\\Filament\\Admin\\Pages')
             ->pages([

@@ -34,11 +34,15 @@ class AttendeesResource extends Resource
             ->columns([
                 Tables\Columns\TextColumn::make('user.name'),
                 Tables\Columns\TextColumn::make('slot.name'),
-                Tables\Columns\BadgeColumn::make('attendance')
-                    ->enum([
-                        1 => 'Present',
-                        0 => 'Absent',
-                    ])
+                Tables\Columns\TextColumn::make('attendance')
+                    ->formatStateUsing(function ($state) {
+                        if ($state == 1) {
+                            return 'Present';
+                        }
+                        else {
+                            return 'Absent';
+                        }
+                    })
                     ->colors([
                         'success' => 1,
                         'danger' => 0,

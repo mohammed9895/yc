@@ -7,7 +7,7 @@
     "require": {
         "php": "^8.2",
         "bezhansalleh/filament-google-analytics": "*",
-        "bezhansalleh/filament-shield": "*",
+        "bezhansalleh/filament-shield": "^3.2",
         "blade-ui-kit/blade-heroicons": "^2.3",
         "filament/filament": "^3.2",
         "filament/spatie-laravel-translatable-plugin": "^3.2",

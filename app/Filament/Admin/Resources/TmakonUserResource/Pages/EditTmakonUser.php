@@ -1,17 +1,16 @@
 <?php
 
-namespace App\Filament\Admin\Resources\HallResource\Pages;
+namespace App\Filament\Admin\Resources\TmakonUserResource\Pages;
 
-use App\Filament\Admin\Resources\HallResource;
-use Filament\Pages\Actions;
+use App\Filament\Admin\Resources\TmakonUserResource;
+use Filament\Actions;
 use Filament\Resources\Pages\EditRecord;
-use Illuminate\Database\Eloquent\Model;
 
-class EditHall extends EditRecord
+class EditTmakonUser extends EditRecord
 {
     use EditRecord\Concerns\Translatable;
 
-    protected static string $resource = HallResource::class;
+    protected static string $resource = TmakonUserResource::class;
 
     protected function getHeaderActions(): array
     {

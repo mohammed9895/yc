@@ -6,12 +6,14 @@ use App\Filament\Admin\Resources\HallResource\Pages;
 use App\Filament\Admin\Resources\HallResource\RelationManagers;
 use App\Models\Hall;
 use Filament\Forms\Components\ColorPicker;
+use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Tabs;
 use Filament\Forms\Components\TagsInput;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
 use Filament\Forms\Form;
+use Filament\Resources\Concerns\Translatable;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Columns\ColorColumn;
@@ -20,6 +22,9 @@ use Filament\Tables\Table;
 
 class HallResource extends Resource
 {
+
+    use Translatable;
+
     protected static ?string $model = Hall::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
@@ -43,45 +48,26 @@ class HallResource extends Resource
     {
         return $form
             ->schema([
-
-                Tabs::make('Heading')
-                    ->tabs([
-                        Tabs\Tab::make(__('english'))
-                            ->icon('heroicon-o-information-circle')
-                            ->schema([
-                                Textarea::make('name_en')
-                                    ->label(__('name_en'))
-                                    ->required(),
-                                Textarea::make('description_en')
-                                    ->label(__('description_en'))
-                                    ->required(),
-                                TagsInput::make('conditions_en')
-                                    ->label(__('conditions_en'))
-                                    ->placeholder('Conditions')
-                                    ->required(),
-                                TextInput::make('capacity')
-                                    ->label(__('capacity'))
-                                    ->required(),
-                                ColorPicker::make('backgroundColor')->label(__('hall')),
-                                Toggle::make('status')
-                                    ->label(__('status'))
-                                    ->required(),
-                            ]),
-                        Tabs\Tab::make(__('arabic'))
-                            ->icon('heroicon-o-information-circle')
-                            ->schema([
-                                Textarea::make('name_ar')
-                                    ->label(__('name_ar'))
-                                    ->required(),
-                                Textarea::make('description_ar')
-                                    ->label(__('description_ar'))
-                                    ->required(),
-                                TagsInput::make('conditions_ar')
-                                    ->label(__('conditions_ar'))
-                                    ->placeholder('Conditions')
-                                    ->required()
-                            ]),
-                    ]),
+                Textarea::make('name')
+                    ->label(__('name'))
+                    ->required(),
+                FileUpload::make('image')
+                    ->image()
+                    ->label(__('image')),
+                Textarea::make('description')
+                    ->label(__('description'))
+                    ->required(),
+                TagsInput::make('conditions')
+                    ->label(__('conditions'))
+                    ->placeholder('Conditions')
+                    ->required(),
+                TextInput::make('capacity')
+                    ->label(__('capacity'))
+                    ->required(),
+                ColorPicker::make('backgroundColor')->label(__('hall')),
+                Toggle::make('status')
+                    ->label(__('status'))
+                    ->required(),
             ])->columns(1);
     }
 

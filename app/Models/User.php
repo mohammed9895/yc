@@ -18,15 +18,11 @@ class User extends Authenticatable implements HasAvatar, FilamentUser
     use HasApiTokens, HasFactory, Notifiable, HasRoles;
     use BelongToBolt;
 
-    public function canAccessFilament(): bool
-    {
-        return str_ends_with($this->email, '@yc.om');
-    }
 
     public function canAccessPanel(Panel $panel): bool
     {
         return match ($panel->getId()) {
-            'admin' => $this->hasRole('super-admin'),
+            'admin' => $this->hasRole('super_admin'),
             default => true,
         };
     }

@@ -8,12 +8,15 @@ use App\Models\Statistice;
 use Filament\Forms;
 use Filament\Forms\Components\Tabs;
 use Filament\Forms\Form;
+use Filament\Resources\Concerns\Translatable;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
 
 class StatisticeResource extends Resource
 {
+    use Translatable;
+
     protected static ?string $model = Statistice::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
@@ -37,37 +40,19 @@ class StatisticeResource extends Resource
     {
         return $form
             ->schema([
-                Tabs::make('About')
-                    ->tabs([
-                        Tabs\Tab::make(__('english'))
-                            ->schema([
-                                Forms\Components\TextInput::make('title_en')
-                                    ->label(__('title_en'))
-                                    ->required(),
-                                Forms\Components\TextInput::make('number_en')
-                                    ->label(__('number_en'))
-                                    ->required(),
-                                Forms\Components\FileUpload::make('icon_en')
-                                    ->label(__('icon_en'))
-                                    ->required(),
-                                Forms\Components\Toggle::make('status')
-                                    ->label(__('status'))
-                                    ->required(),
-                            ]),
-                        Tabs\Tab::make(__('arabic'))
-                            ->schema([
-                                Forms\Components\TextInput::make('title_ar')
-                                    ->label(__('title_ar'))
-                                    ->required(),
-                                Forms\Components\TextInput::make('number_ar')
-                                    ->label(__('number_ar'))
-                                    ->required(),
-                                Forms\Components\FileUpload::make('icon_ar')
-                                    ->label(__('icon_ar'))
-                                    ->required(),
-                            ]),
-                    ]),
-            ]);
+                    Forms\Components\TextInput::make('title')
+                        ->label(__('title'))
+                        ->required(),
+                    Forms\Components\TextInput::make('number')
+                        ->label(__('number'))
+                        ->required(),
+                    Forms\Components\Textarea::make('icon')
+                        ->label(__('icon'))
+                        ->required(),
+                    Forms\Components\Toggle::make('status')
+                        ->label(__('status'))
+                        ->required(),
+            ])->columns(1);
     }
 
     public static function table(Table $table): Table
@@ -76,8 +61,7 @@ class StatisticeResource extends Resource
             ->columns([
                 Tables\Columns\TextColumn::make('title')->label(__('title')),
                 Tables\Columns\TextColumn::make('number')->label(__('number')),
-                Tables\Columns\ImageColumn::make('icon')->label(__('icon')),
-                Tables\Columns\TextColumn::make('status')->label(__('status')),
+                Tables\Columns\ToggleColumn::make('status')->label(__('status')),
                 Tables\Columns\TextColumn::make('created_at')->label(__('created_at'))
                     ->dateTime(),
                 Tables\Columns\TextColumn::make('updated_at')->label(__('updated_at'))
