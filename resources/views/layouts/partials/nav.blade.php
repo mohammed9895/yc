@@ -1,5 +1,5 @@
-<div x-data="{ atTop: true, menuOpen: false }"  >
-    <nav class="" :class="{ 'bg-white text-white': !atTop, 'bg-transparent': atTop }" @scroll.window="atTop = (window.pageYOffset < 50) ? false: true">
+<div class="relative" >
+    <nav class="z-50" >
         <div class="container mx-auto py-5 md:py-12 md:px-2">
             <div class="flex justify-between items-center">
                 <div>
@@ -13,7 +13,7 @@
                         <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"></path>
                     </svg>
                 </button>
-                <div class="w-full hidden mt-5 md:mt-0 md:block md:w-auto" >
+                <div class="w-full z-50 hidden mt-5 md:mt-0 md:block md:w-auto" >
                     <ul class="flex items-center space-x-reverse space-x-10">
                         <li>
                             <a href="{{ route('home.index') }}">الرئيسية</a>
