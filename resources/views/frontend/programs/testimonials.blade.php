@@ -21,7 +21,7 @@
                             <img src="{{ asset('images/small-icons.svg') }}" class="size-16" alt="">
                         </div>
                         <p class="text-gray-600 text-sm">
-                            {{ $evaluate->developed }}
+                            {{ $evaluate->devloped }}
                         </p>
                     </div>
             @endforeach
@@ -37,7 +37,7 @@
                         <img src="{{ asset('images/small-icons.svg') }}" class="size-16" alt="">
                     </div>
                     <p class="text-gray-600 text-sm">
-                        {{ $evaluate->developed }}
+                        {{ $evaluate->devloped }}
                     </p>
                 </div>
             @endforeach
@@ -53,7 +53,7 @@
                         <img src="{{ asset('images/small-icons.svg') }}" class="size-16" alt="">
                     </div>
                     <p class="text-gray-600 text-sm">
-                        {{ $evaluate->developed }}
+                        {{ $evaluate->devloped }}
                     </p>
                 </div>
             @endforeach
