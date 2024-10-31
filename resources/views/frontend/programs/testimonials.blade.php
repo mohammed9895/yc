@@ -1,10 +1,10 @@
-<section class="py-32 ">
+<section class="py-32">
     <div>
-        <div class="flex justify-start items-center w-full">
-            <div class="w-1/3 ">
+        <div class="flex flex-col md:flex-row justify-start items-center w-full">
+            <div class="w-full md:w-1/3 mt-5 md:mb-0">
                 <img src="{{ asset('images/grid-line.svg') }}" class="w-full rotate-180" alt="">
             </div>
-            <div class="w-2/3 mr-10">
+            <div class="w-full md:w-2/3 md:mr-10">
                 <h1 class="font-bold text-4xl text-gray-800">آراء المتدربيين عن الدورات و الورش المقدمة</h1
             </div>
         </div>

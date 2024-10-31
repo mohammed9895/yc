@@ -18,9 +18,9 @@
             </div>
         </div>
     </div>
-    <div class="flex flex-col md:flex-row md:justify-between items-center mr-60">
-        <div class="flex flex-col justify-center md:flex-row w-full md:justify-start md:w-5/12 items-center md:gap-10">
-            <div class="relative w-60 h-60 rounded-full p-3 border-[4px] border-[#720AD8] cir">
+    <div class="flex flex-col md:flex-row md:justify-between items-center md:mr-60">
+        <div class="flex my-10 justify-center w-full md:justify-start md:w-5/12 items-center md:gap-10">
+            <div class="relative w-60 h-60 rounded-full p-3 border-[4px] border-[#720AD8] sm:ml-3">
                 <div>
                     <img src="{{ asset('images/workshop.png') }}" class="size-52" alt="">
                 </div>
@@ -32,12 +32,12 @@
             </div>
         </div>
         <div class="flex w-full   md:w-7/12 justify-between">
-            <div class="bg-[#000F4A] w-1/2 text-white flex justify-center items-center flex-col space-y-10 h-96 px-20">
+            <div class="bg-[#000F4A] w-1/2 text-white flex justify-center items-center flex-col space-y-10 h-52 md:h-96 px-20">
                 <img src="{{ asset('images/yc-logo-white.svg') }}" width="250" alt="">
                 <h1 class="text-lg">سجل معنا لتبقى على اطلاع بآخر البرامج</h1>
             </div>
-            <div class="bg-[#E9DAF7] w-1/2  overflow-hidden relative text-white flex justify-center items-center flex-col space-y-10 h-96 px-20 pl-60">
-                <img src="{{ asset('images/pattren.svg') }}"  class="absolute left-0 top-0 w-1/4 scale-125" alt="">
+            <div class="bg-[#E9DAF7] w-1/2  overflow-hidden relative text-white flex justify-center items-center flex-col space-y-10  px-20 md:pl-60">
+                <img src="{{ asset('images/pattren.svg') }}"  class="absolute left-0 top-0 w-1/4 scale-125 " alt="">
                 <h1 class="text-2xl font-bold text-[#720AD8]">+120
                     <br>
                     أكثر من برنامج و

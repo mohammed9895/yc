@@ -73,6 +73,7 @@ class EvaluateResource extends Resource
             ->columns([
                 Tables\Columns\TextColumn::make('user.name')->searchable()->label(__('User')),
                 Tables\Columns\TextColumn::make('workshop.title')->searchable()->sortable()->label(__('Workshop')),
+                Tables\Columns\ToggleColumn::make('featured')->label(__('featured')),
                 Tables\Columns\TextColumn::make('rating')->searchable()->sortable()->label(__('rating')),
                 Tables\Columns\TextColumn::make('instructor')->searchable()->sortable()->label(__('instructor')),
                 Tables\Columns\TextColumn::make('duration')->searchable()->sortable()->label(__('duration')),

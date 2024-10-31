@@ -1,14 +1,14 @@
 <section class="py-32">
-    <div class="flex justify-between items-center">
-        <div class="w-1/3 mr-10">
+    <div class="flex flex-col md:flex-row justify-between items-center">
+        <div class="w-full md:w-1/3 md:mr-10">
             <h1 class="font-bold text-4xl text-gray-800 mb-4">اكتشف البرامج الصيفية</h1>
             <h2 class="text-xl text-gray-500">عش تجارب استثنائية لتوسع آفاق معرفتك</h2>
         </div>
-        <div class="w-2/3">
+        <div class="w-full md:w-2/3 mt-5 md:mt-0">
             <img src="{{ asset('images/grid-line.svg') }}" class="w-full" alt="">
         </div>
     </div>
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-10 mt-10 mx-10">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-10 mt-10 mx-10">
         @foreach($upcoming_programs as $program)
             <div class="bg-white shadow-sm ring-1 ring-black/5 data-[dark]:bg-gray-800 data-[dark]:ring-white/15 p-5 rounded-lg">
             <img src="/storage/{{ $program->cover }}" class="mb-3" alt="">
