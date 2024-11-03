@@ -135,8 +135,6 @@
 }
 
 
-
-@config 'tailwind.config.js';
 .calendar>.days-grid>.day {
     @apply w-[60px] h-[60px] max-w-[60px] max-h-[60px];
 }

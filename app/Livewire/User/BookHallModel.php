@@ -12,6 +12,7 @@ use App\Models\Hall;
 use App\Notifications\SmsMessage;
 use Carbon\Carbon;
 use Filament\Notifications\Notification;
+use Illuminate\Support\Str;
 use Livewire\Attributes\Computed;
 use LivewireUI\Modal\ModalComponent;
 
@@ -38,6 +39,8 @@ class BookHallModel extends ModalComponent
 
         $event = $this->createEvent();
 
+        ray($event);
+
         $this->closeModal();
 
         Notification::make()
@@ -63,19 +66,16 @@ class BookHallModel extends ModalComponent
 
     protected function createEvent()
     {
-
-        $event = Event::create([
+        return Event::create([
             'title' => $this->form->title,
             'user_id' => auth()->id(),
             'hall_id' => $this->hall->id,
             'reasone' => $this->form->reasone,
             'pax' => $this->form->pax,
-                'start' => Carbon::parse($this->form->date)->setTimeFromTimeString($this->form->slots[0]),
-                'end' => Carbon::parse($this->form->date)->setTimeFromTimeString(end($this->form->slots)), // assuming a fixed duration for events, adjust as necessary
+            'start' => Carbon::parse($this->form->date)->setTimeFromTimeString($this->form->slots[0]),
+            'end' => Carbon::parse($this->form->date)->setTimeFromTimeString(end($this->form->slots)), // assuming a fixed duration for events, adjust as necessary
             ]
         );
-
-        return $event;
     }
 
     public function setDate(?string $date)

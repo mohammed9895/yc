@@ -113,14 +113,14 @@
                     </div>
                     <div class="mt-3">
                         <label for="reason" class="sr-only">Reason</label>
-                        <input type="text" name="reason" id="reason" class="mt-1 text-sm bg-gray-100 dark:bg-gray-700 border-0 rounded-lg px-6 py-4 w-full" placeholder="Your Reason" wire:model="form.reason">
-                        @error('form.reason')
+                        <input type="text" name="reasone" id="reason" class="mt-1 text-sm bg-gray-100 dark:bg-gray-700 border-0 rounded-lg px-6 py-4 w-full" placeholder="Your Reason" wire:model="form.reasone">
+                        @error('form.reasone')
                         <div class="mt-2 text-sm font-medium text-red-500">{{ $message }}</div>
                         @enderror
                     </div>
                     <div class="mt-3">
                         <label for="pax" class="sr-only">PAX</label>
-                        <input type="text" name="pax" id="pax" class="mt-1 text-sm bg-gray-100 dark:bg-gray-700 border-0 rounded-lg px-6 py-4 w-full" placeholder="PAX" wire:model="form.pax">
+                        <input type="number" name="pax" id="pax" class="mt-1 text-sm bg-gray-100 dark:bg-gray-700 border-0 rounded-lg px-6 py-4 w-full" placeholder="PAX" wire:model="form.pax">
                         @error('form.pax')
                         <div class="mt-2 text-sm font-medium text-red-500">{{ $message }}</div>
                         @enderror
