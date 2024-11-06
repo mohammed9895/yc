@@ -96,7 +96,7 @@ class Register extends Component implements HasForms
                                         ->options(Disability::all()->pluck('name', 'id'))
                                         ->searchable(),
                                     Radio::make('gender')
-                                        ->label(__('sex'))
+                                        ->label(__('global.sex'))
                                         ->options([
                                             0 => __('filament::users.male'),
                                             1 => __('filament::users.female'),
