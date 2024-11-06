@@ -30,8 +30,11 @@ class ScheduleAvailability
                     $this->subtractScheduleExclusion($scheduleExclusion);
                 });
 
-
                 $this->excludeTimePassedToday();
+
+                $this->hall->events->each(function (Event $event) {
+                    $this->subtractEvent($event);
+                });
             });
 
         return $this->periods;

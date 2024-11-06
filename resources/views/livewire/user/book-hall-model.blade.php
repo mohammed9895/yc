@@ -9,7 +9,7 @@
     @endscript
     <form class="space-y-10 min-h-[600px]" wire:submit="submit">
         <div>
-            <h2 class="text-xl font-medium">Here's what you're booking</h2>
+            <h2 class="text-xl font-medium">Book {{ $hall->name }}</h2>
             <div class="mt-6 flex space-x-3 bg-gray-100 dark:bg-gray-700 rounded-lg p-4">
                 @if($hall)
                     <div class="rounded-lg size-14 shrink-0" style="background: {{$hall->backgroundColor}}">
@@ -125,8 +125,16 @@
                         <div class="mt-2 text-sm font-medium text-red-500">{{ $message }}</div>
                         @enderror
                     </div>
-                    <button type="submit" class="mt-6 py-3 px-6 text-sm border border-gray-300 dark:border-gray-600 rounded-lg flex flex-col items-center justify-center text-center hover:bg-gray-200 dark:hover:bg-gray-600 cursor-pointer bg-gray-300 dark:bg-gray-700 text-gray-900 dark:text-white font-medium">
-                        Make booking
+
+                    @error('form.date')
+                     <div class="mt-2 text-sm font-medium text-red-500">{{ $message }}</div>
+                    @enderror
+
+                    <button type="submit" class="mt-6 py-3 px-6 text-sm border border-gray-300 dark:border-gray-600 rounded-lg flex flex-row items-center justify-center text-center hover:text-gray-900 dark:text-white dark:hover:bg-gray-600 cursor-pointer bg-gray-300 dark:bg-gray-700 text-gray-900 dark:text-white font-medium">
+                       <span class="mr-1">Make booking</span>
+                        <svg wire:loading data-slot="icon" fill="none" stroke-width="1.5" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="w-6 h-6 text-gray-900 dark:text-white animate-spin">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0 3.181 3.183a8.25 8.25 0 0 0 13.803-3.7M4.031 9.865a8.25 8.25 0 0 1 13.803-3.7l3.181 3.182m0-4.991v4.99"></path>
+                        </svg>
                     </button>
                 </div>
             </div>

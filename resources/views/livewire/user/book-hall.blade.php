@@ -27,5 +27,12 @@
             </div>
         @endforeach
 
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                Livewire.on('openModal', (component, data) => {
+
+                });
+            });
+        </script>
     </div>
 </div>
