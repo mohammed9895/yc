@@ -21,9 +21,7 @@ class ServiceSlotAvailability
 
         $this->halls->each(function (Hall $hall) use ($startsAt, $endsAt, &$range) {
             $periods = (new ScheduleAvailability($hall))->forPeriod($startsAt, $endsAt);
-            ray('1', $periods);
             $periods = $this->removeEvents($periods, $hall);
-            ray('2', $periods);
             foreach ($periods as $period) {
                 $this->addAvailableHallForPeriod($range, $period, $hall);
             }
@@ -31,7 +29,6 @@ class ServiceSlotAvailability
 
         $range = $this->removeEmptySlots($range);
 
-        ray('ranges', $range);
         return $range;
     }
 
@@ -47,6 +44,8 @@ class ServiceSlotAvailability
                 )
             );
         });
+
+        ray($periods);
 
         return $periods;
     }
