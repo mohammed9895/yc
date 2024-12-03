@@ -12,7 +12,7 @@
         @foreach ($workshops as $workshop)
             <div
                 class="max-w-sm relative bg-white cursor-pointer border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-                <a wire:click="$dispatch('openModal', 'user.booking-model', {{ json_encode(['workshop' => $workshop->id], JSON_UNESCAPED_UNICODE) }})">
+                <a wire:click="$dispatch('openModal', { component: 'user.booking-model', arguments: { workshop: {{ $workshop->id }} } })">
                     <img class="rounded-t-lg max-h-80 w-full" src="/storage/{{ $workshop->cover }}" alt="" />
                 </a>
                 <div class="p-5">
