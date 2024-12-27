@@ -43,7 +43,7 @@
             <div class="flex">
                 <div class="flex-shrink-0 flex items-center">
                     <a class="italic flex gap-2 group" href="{{ url('/') }}">
-                        <img class="w-32" src="{{ asset('images/YC-logo-white.svg') }}"
+                        <img class="w-32" src="{{ asset('images/yc-logo-white.svg') }}"
                              alt="{{ config('app.name', 'Laravel') }}">
                     </a>
                 </div>
