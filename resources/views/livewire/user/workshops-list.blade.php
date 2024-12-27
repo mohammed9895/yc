@@ -12,7 +12,7 @@
         @foreach ($workshops as $workshop)
             <div
                 class="max-w-sm relative bg-white cursor-pointer border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-                <a wire:click="$dispatch('openModal', 'user.booking-model', {{ json_encode(['workshop' => $workshop->id], JSON_UNESCAPED_UNICODE) }})">
+                <a wire:click="$dispatch('openModal', { component: 'user.booking-model', arguments: { workshop: {{ $workshop->id }} } })">
                     <img class="rounded-t-lg max-h-80 w-full" src="/storage/{{ $workshop->cover }}" alt="" />
                 </a>
                 <div class="p-5">
@@ -24,12 +24,12 @@
                         <span
                             class="bg-purple-100 absolute top-2 left-1  text-purple-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded-full dark:bg-purple-900 dark:text-purple-300">{{ $workshop->place->name }}</span>
                     </div>
-                    <a wire:click="$dispatch('openModal', 'user.booking-model', {{ json_encode(['workshop' => $workshop->id], JSON_UNESCAPED_UNICODE) }})">
+                    <a wire:click="$dispatch('openModal', { component: 'user.booking-model', arguments: { workshop: {{ $workshop->id }} } })">
                         <h5 class="mb-2 text-2xl cursor-pointer font-bold tracking-tight text-gray-900 dark:text-white">
                             {{ $workshop->title }}</h5>
                     </a>
                     <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">{{ $workshop->description }}</p>
-                    <a wire:click="$dispatch('openModal', 'user.booking-model', {{ json_encode(['workshop' => $workshop->id], JSON_UNESCAPED_UNICODE) }})"
+                    <a wire:click="$dispatch('openModal', { component: 'user.booking-model', arguments: { workshop: {{ $workshop->id }} } })"
                         class="inline-flex cursor-pointer items-center px-3 py-2 text-sm font-medium text-center text-white bg-primary-700 rounded-lg hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
                         {{ __('filament::users.workshop.attend') }}
                         @if (Config::get('app.locale') == 'en')
