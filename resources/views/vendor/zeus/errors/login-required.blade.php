@@ -16,7 +16,7 @@
             {{ __('Login is required to access the form') }}
             <span class="font-semibold">{{ $zeusForm->name ?? '' }}</span>.
             <x-slot name="description">
-                <x-filament::button tag="a" size="sm" href="{{ url('/login') }}">
+                <x-filament::button tag="a" size="sm" href="{{ url('/cp/login') }}">
                     {{ __('Login') }}
                 </x-filament::button>
             </x-slot>
