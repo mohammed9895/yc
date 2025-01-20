@@ -32,6 +32,7 @@ class CpPanelProvider extends PanelProvider
             ->default()
             ->id('cp')
             ->registration(Register::class)
+            ->passwordReset()
             ->login(Login::class)
             ->brandLogo(asset('images/yc-logo-colored.svg'))
             ->path('cp')
