@@ -70,6 +70,9 @@ class EmployeePanelProvider extends PanelProvider
             ->databaseNotifications()
             ->font('IBM Plex Sans Arabic')
             ->brandLogo(asset('images/yc-logo-colored.svg'))
-            ->plugin(SpatieLaravelTranslatablePlugin::make()->defaultLocales(['ar', 'en']));
+            ->plugins([
+                SpatieLaravelTranslatablePlugin::make()->defaultLocales(['ar', 'en']),
+                \BezhanSalleh\FilamentShield\FilamentShieldPlugin::make(),
+            ]);
     }
 }
