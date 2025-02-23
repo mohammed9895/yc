@@ -9,6 +9,9 @@ use Filament\Widgets\StatsOverviewWidget\Stat;
 
 class ContractorCategoriesExpanses extends BaseWidget
 {
+
+    use HasWidgetShield;
+
     protected static ?int $sort = 5;
 
 

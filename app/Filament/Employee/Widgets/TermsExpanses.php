@@ -3,11 +3,13 @@
 namespace App\Filament\Employee\Widgets;
 
 use App\Models\Term;
+use BezhanSalleh\FilamentShield\Traits\HasWidgetShield;
 use Filament\Widgets\StatsOverviewWidget as BaseWidget;
 use Filament\Widgets\StatsOverviewWidget\Stat;
 
 class TermsExpanses extends BaseWidget
 {
+    use HasWidgetShield;
     protected static ?int $sort = 2;
     protected function getStats(): array
     {

@@ -4,12 +4,15 @@ namespace App\Filament\Employee\Widgets;
 
 use App\Models\Expense;
 use App\Models\Income;
+use BezhanSalleh\FilamentShield\Traits\HasWidgetShield;
 use Filament\Widgets\ChartWidget;
 use Flowframe\Trend\Trend;
 use Flowframe\Trend\TrendValue;
 
 class ExpenseChart extends ChartWidget
 {
+    use HasWidgetShield;
+
     protected static ?int $sort = 3;
 
     protected static ?string $heading = 'Expanses Chart';

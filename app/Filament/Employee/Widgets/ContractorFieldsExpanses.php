@@ -4,11 +4,14 @@ namespace App\Filament\Employee\Widgets;
 
 use App\Models\Contractor;
 use App\Models\ContractorField;
+use BezhanSalleh\FilamentShield\Traits\HasWidgetShield;
 use Filament\Widgets\StatsOverviewWidget as BaseWidget;
 use Filament\Widgets\StatsOverviewWidget\Stat;
 
 class ContractorFieldsExpanses extends BaseWidget
 {
+    use HasWidgetShield;
+
     protected static ?int $sort = 5;
 
     protected ?string $heading = 'Analytics';

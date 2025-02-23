@@ -5,12 +5,13 @@ namespace App\Filament\Employee\Widgets;
 use App\Models\Expense;
 use App\Models\Income;
 use App\Models\Term;
+use BezhanSalleh\FilamentShield\Traits\HasWidgetShield;
 use Filament\Widgets\StatsOverviewWidget as BaseWidget;
 use Filament\Widgets\StatsOverviewWidget\Stat;
 
 class Finance extends BaseWidget
 {
-
+    use HasWidgetShield;
     protected static ?int $sort = 1;
     protected function getStats(): array
     {

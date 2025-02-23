@@ -4,12 +4,15 @@ namespace App\Filament\Employee\Widgets;
 
 use App\LeaveStatus;
 use App\Models\Employee;
+use BezhanSalleh\FilamentShield\Traits\HasWidgetShield;
 use Carbon\Carbon;
 use Filament\Widgets\StatsOverviewWidget as BaseWidget;
 use Filament\Widgets\StatsOverviewWidget\Stat;
 
 class Leave extends BaseWidget
 {
+    use HasWidgetShield;
+    
     protected static ?int $sort = 1000;
     protected function getStats(): array
     {
