@@ -44,4 +44,9 @@ class Employee extends Model
     {
         return $this->hasMany(BittyCashRequest::class);
     }
+
+    public function workFromHomeRequest(): HasMany
+    {
+        return $this->hasMany(WorkFromHomeRequest::class);
+    }
 }

@@ -3,6 +3,7 @@
 namespace App\Filament\Employee\Widgets;
 
 use App\Models\ContractorCategory;
+use BezhanSalleh\FilamentShield\Traits\HasWidgetShield;
 use Filament\Widgets\StatsOverviewWidget as BaseWidget;
 use Filament\Widgets\StatsOverviewWidget\Stat;
 

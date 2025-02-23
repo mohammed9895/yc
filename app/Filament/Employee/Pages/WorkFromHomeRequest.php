@@ -5,6 +5,7 @@ namespace App\Filament\Employee\Pages;
 use App\LeaveStatus;
 use App\Models\Employee;
 use App\Models\Leave;
+use App\WorkFromHomeStatus;
 use Carbon\Carbon;
 use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\RichEditor;
@@ -18,16 +19,14 @@ use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Concerns\InteractsWithTable;
 use Filament\Tables\Contracts\HasTable;
 use Filament\Tables\Table;
-use Symfony\Component\Stopwatch\Section;
 
-class RequestLeave extends Page implements HasForms, HasTable
+class WorkFromHomeRequest extends Page implements HasForms, HasTable
 {
     use InteractsWithForms, InteractsWithTable;
 
-    protected static ?string $navigationIcon = 'heroicon-o-arrow-left-start-on-rectangle';
+    protected static ?string $navigationIcon = 'heroicon-o-home-modern';
 
-    protected static string $view = 'filament.employee.pages.request-leave';
-
+    protected static string $view = 'filament.employee.pages.work-from-home-request';
 
     public array $data = [];
 
@@ -53,14 +52,14 @@ class RequestLeave extends Page implements HasForms, HasTable
     {
         $employee  = Employee::where('user_id', auth()->id())->first();
 
-        $totalLeaveDays = Leave::where('employee_id', $employee->id)
-            ->whereIn('status', [LeaveStatus::AcceptedByCEO, LeaveStatus::AcceptedByDirectManger])
+        $totalLeaveDays = \App\Models\WorkFromHomeRequest::where('employee_id', $employee->id)
+            ->whereIn('status', [WorkFromHomeStatus::AcceptedByCEO, WorkFromHomeStatus::AcceptedByDirectManger])
             ->get()
             ->sum(function ($leave) {
                 return Carbon::parse($leave->from)->diffInDays(Carbon::parse($leave->to)) + 1;
             });
 
-        $leaveBalance = $employee->number_of_yearly_leave - $totalLeaveDays;
+        $leaveBalance = $employee->work_from_home_days - $totalLeaveDays;
 
         $requestedDays = Carbon::parse($this->data['from'])->diffInDays(Carbon::parse($this->data['to'])) + 1;
 
@@ -68,29 +67,29 @@ class RequestLeave extends Page implements HasForms, HasTable
 
         if ($requestedDays > $leaveBalance) {
             return Notification::make('error')
-                    ->title('Error')
-                    ->body('Sorry, But you don\'t have enough leave days')
-                    ->danger()
-                    ->send();
-        }
-
-        $waitingLeave = Leave::where('employee_id', $employee->id)->where('status', LeaveStatus::Waiting)->count();
-
-        if ($waitingLeave > 0) {
-            return Notification::make('error')
                 ->title('Error')
-                ->body('Sorry, But you have pending leave request')
+                ->body('Sorry, But you don\'t have enough work from home days')
                 ->danger()
                 ->send();
         }
 
-        Leave::create($this->data);
+        $waitingLeave = \App\Models\WorkFromHomeRequest::where('employee_id', $employee->id)->where('status', WorkFromHomeStatus::Waiting)->count();
+
+        if ($waitingLeave > 0) {
+            return Notification::make('error')
+                ->title('Error')
+                ->body('Sorry, But you have pending work from home request')
+                ->danger()
+                ->send();
+        }
+
+        \App\Models\WorkFromHomeRequest::create($this->data);
 
         $this->reset();
 
         return Notification::make('success')
             ->title('Success')
-            ->body('Grate, your leave submitted successfully')
+            ->body('Grate, your work from home request submitted successfully')
             ->success()
             ->send();
 
@@ -101,19 +100,18 @@ class RequestLeave extends Page implements HasForms, HasTable
         $employee  = Employee::where('user_id', auth()->id())->first();
 
         return $table
-            ->query(Leave::where('employee_id', $employee->id))
+            ->query(\App\Models\WorkFromHomeRequest::where('employee_id', $employee->id))
             ->columns([
-            TextColumn::make('from')->date(),
-            TextColumn::make('to')->date(),
-            TextColumn::make('status')->badge(),
-        ]);
+                TextColumn::make('from')->date(),
+                TextColumn::make('to')->date(),
+                TextColumn::make('status')->badge(),
+            ]);
     }
 
     protected function getHeaderWidgets(): array
     {
         return [
-            \App\Filament\Employee\Widgets\Leave::class
+            \App\Filament\Employee\Widgets\WorkFromHome::class
         ];
     }
-
 }
