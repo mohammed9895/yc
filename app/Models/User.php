@@ -23,6 +23,7 @@ class User extends Authenticatable implements HasAvatar, FilamentUser
     {
         return match ($panel->getId()) {
             'admin' => $this->hasRole('super_admin'),
+            'employee' => $this->hasRole('employee'),
             default => true,
         };
     }
