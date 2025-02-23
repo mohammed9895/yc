@@ -12,7 +12,7 @@ use Filament\Widgets\StatsOverviewWidget\Stat;
 class Leave extends BaseWidget
 {
     use HasWidgetShield;
-    
+
     protected static ?int $sort = 1000;
     protected function getStats(): array
     {

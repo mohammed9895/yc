@@ -3,6 +3,7 @@
 namespace App\Policies;
 
 use App\Models\LinkedinDitales;
+use App\Models\Source;
 use App\Models\User;
 
 class SourcePolicy
@@ -18,7 +19,7 @@ class SourcePolicy
     /**
      * Desourceine whether the user can view the model.
      */
-    public function view(User $user, LinkedinDitales $linkedinDitales): bool
+    public function view(User $user, Source $source): bool
     {
         return $user->can('view_source');
     }
@@ -34,7 +35,7 @@ class SourcePolicy
     /**
      * Desourceine whether the user can update the model.
      */
-    public function update(User $user, LinkedinDitales $linkedinDitales): bool
+    public function update(User $user, Source $source): bool
     {
         return $user->can('update_source');
     }
@@ -42,7 +43,7 @@ class SourcePolicy
     /**
      * Desourceine whether the user can delete the model.
      */
-    public function delete(User $user, LinkedinDitales $linkedinDitales): bool
+    public function delete(User $user, Source $source): bool
     {
         return $user->can('delete_source');
     }
@@ -50,7 +51,7 @@ class SourcePolicy
     /**
      * Desourceine whether the user can restore the model.
      */
-    public function restore(User $user, LinkedinDitales $linkedinDitales): bool
+    public function restore(User $user, Source $source): bool
     {
         return $user->can('restore_source');
     }
@@ -58,7 +59,7 @@ class SourcePolicy
     /**
      * Desourceine whether the user can permanently delete the model.
      */
-    public function forceDelete(User $user, LinkedinDitales $linkedinDitales): bool
+    public function forceDelete(User $user, Source $source): bool
     {
         return $user->can('force_delete_source');
     }

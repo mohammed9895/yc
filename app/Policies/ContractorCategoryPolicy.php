@@ -2,6 +2,7 @@
 
 namespace App\Policies;
 
+use App\Models\ContractorCategory;
 use App\Models\LinkedinDitales;
 use App\Models\User;
 
@@ -18,7 +19,7 @@ class ContractorCategoryPolicy
     /**
      * Decontractor::categoryine whether the user can view the model.
      */
-    public function view(User $user, LinkedinDitales $linkedinDitales): bool
+    public function view(User $user, ContractorCategory $contractorCategory): bool
     {
         return $user->can('view_contractor::category');
     }
@@ -34,7 +35,7 @@ class ContractorCategoryPolicy
     /**
      * Decontractor::categoryine whether the user can update the model.
      */
-    public function update(User $user, LinkedinDitales $linkedinDitales): bool
+    public function update(User $user, ContractorCategory $contractorCategory): bool
     {
         return $user->can('update_contractor::category');
     }
@@ -42,7 +43,7 @@ class ContractorCategoryPolicy
     /**
      * Decontractor::categoryine whether the user can delete the model.
      */
-    public function delete(User $user, LinkedinDitales $linkedinDitales): bool
+    public function delete(User $user, ContractorCategory $contractorCategory): bool
     {
         return $user->can('delete_contractor::category');
     }
@@ -50,7 +51,7 @@ class ContractorCategoryPolicy
     /**
      * Decontractor::categoryine whether the user can restore the model.
      */
-    public function restore(User $user, LinkedinDitales $linkedinDitales): bool
+    public function restore(User $user, ContractorCategory $contractorCategory): bool
     {
         return $user->can('restore_contractor::category');
     }
@@ -58,7 +59,7 @@ class ContractorCategoryPolicy
     /**
      * Decontractor::categoryine whether the user can permanently delete the model.
      */
-    public function forceDelete(User $user, LinkedinDitales $linkedinDitales): bool
+    public function forceDelete(User $user, ContractorCategory $contractorCategory): bool
     {
         return $user->can('force_delete_contractor::category');
     }
