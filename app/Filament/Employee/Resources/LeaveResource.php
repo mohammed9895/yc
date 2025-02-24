@@ -93,7 +93,7 @@ class LeaveResource extends Resource
                     ->color('danger')
                     ->hidden(function (Leave $leave) {
                         $employee = Employee::where('user_id', auth()->id())->first();
-                        return  $employee->is_ceo || $leave->status == LeaveStatus::RejectedByDirectManger;
+                        return $leave->status == LeaveStatus::RejectedByDirectManger;
                     })
                     ->action(function (Leave $record) {
                         $record->status = LeaveStatus::RejectedByDirectManger;
@@ -111,7 +111,7 @@ class LeaveResource extends Resource
                     ->color('success')
                     ->hidden(function (Leave $leave) {
                         $employee = Employee::where('user_id', auth()->id())->first();
-                        return $employee->is_ceo || $leave->status == LeaveStatus::AcceptedByDirectManger;
+                        return $leave->status == LeaveStatus::AcceptedByDirectManger;
                     })
                     ->action(function (Leave $record) {
                         $record->status = LeaveStatus::AcceptedByDirectManger;
