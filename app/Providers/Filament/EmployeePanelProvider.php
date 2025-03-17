@@ -19,6 +19,7 @@ use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\AuthenticateSession;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
+use LaraZeus\Bolt\BoltPlugin;
 
 class EmployeePanelProvider extends PanelProvider
 {
@@ -73,6 +74,7 @@ class EmployeePanelProvider extends PanelProvider
             ->plugins([
                 SpatieLaravelTranslatablePlugin::make()->defaultLocales(['ar', 'en']),
                 \BezhanSalleh\FilamentShield\FilamentShieldPlugin::make(),
+                BoltPlugin::make(),
             ]);
     }
 }
