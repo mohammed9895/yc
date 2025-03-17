@@ -74,7 +74,6 @@ class EmployeePanelProvider extends PanelProvider
             ->plugins([
                 SpatieLaravelTranslatablePlugin::make()->defaultLocales(['ar', 'en']),
                 \BezhanSalleh\FilamentShield\FilamentShieldPlugin::make(),
-                BoltPlugin::make(),
             ]);
     }
 }
