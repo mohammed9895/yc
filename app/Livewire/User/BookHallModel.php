@@ -37,7 +37,7 @@ class BookHallModel extends ModalComponent
             return;
         }
 
-       // check if the user has already booked the hall today
+        // check if the user has already booked the hall today
         $user = auth()->user();
         $bookingDate = Carbon::parse($this->form->date)->toDateString();
 
@@ -74,7 +74,6 @@ class BookHallModel extends ModalComponent
 
     protected function createEvent()
     {
-
         reset($this->form->slots);
         $firstElement = current($this->form->slots);
 
@@ -84,17 +83,16 @@ class BookHallModel extends ModalComponent
         // check if the end time is after the start time
         if ($end->lessThanOrEqualTo($start)) {
             $this->addError('form.time', 'The end time must be after the start time.');
-            return ;
         }
 
         return Event::create([
-            'title' => $this->form->title,
-            'user_id' => auth()->id(),
-            'hall_id' => $this->hall->id,
-            'reasone' => $this->form->reasone,
-            'pax' => $this->form->pax,
-            'start' => $start,
-            'end' => $end, // assuming a fixed duration for events, adjust as necessary
+                'title' => $this->form->title,
+                'user_id' => auth()->id(),
+                'hall_id' => $this->hall->id,
+                'reasone' => $this->form->reasone,
+                'pax' => $this->form->pax,
+                'start' => $start,
+                'end' => $end, // assuming a fixed duration for events, adjust as necessary
             ]
         );
     }
