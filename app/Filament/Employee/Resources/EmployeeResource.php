@@ -42,7 +42,7 @@ class EmployeeResource extends Resource
                     ->searchable()
                     ->getSearchResultsUsing(fn (string $search): array => User::where('name', 'like', "%{$search}%")->limit(50)->pluck('name', 'id')->toArray())
                     ->getOptionLabelUsing(fn ($value): ?string => User::find($value)?->name)
-                    ->options(User::all()->pluck('name', 'id'))
+                    ->options(User::where('email', 'like', '%@yc.om')->pluck('name', 'id'))
                     ->required(),
                 Forms\Components\TextInput::make('employee_number'),
                 Forms\Components\TextInput::make('first_name'),
