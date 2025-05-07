@@ -100,7 +100,7 @@ class LeaveResource extends Resource
                         $record->save();
                         return Notification::make('success')
                             ->title('Success')
-                            ->body('Grate, Leave Rejected Successfully')
+                            ->body('Great, Leave Rejected Successfully')
                             ->success()
                             ->send();
                     }),
@@ -118,7 +118,7 @@ class LeaveResource extends Resource
                         $record->save();
                         return Notification::make('success')
                             ->title('Success')
-                            ->body('Grate, Leave Accepted Successfully')
+                            ->body('Great, Leave Accepted Successfully')
                             ->success()
                             ->send();
                     }),
@@ -141,7 +141,7 @@ class LeaveResource extends Resource
                         $record->save();
                         return Notification::make('success')
                             ->title('Success')
-                            ->body('Grate, Leave Rejected Successfully')
+                            ->body('Great, Leave Rejected Successfully')
                             ->success()
                             ->send();
                     }),
@@ -163,7 +163,7 @@ class LeaveResource extends Resource
                         $record->save();
                         return Notification::make('success')
                             ->title('Success')
-                            ->body('Grate, Leave Accepted Successfully')
+                            ->body('Great, Leave Accepted Successfully')
                             ->success()
                             ->send();
                     }),

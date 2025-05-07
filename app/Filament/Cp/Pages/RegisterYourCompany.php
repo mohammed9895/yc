@@ -46,19 +46,6 @@ class RegisterYourCompany extends Page implements HasForms, HasTable
         return   __('filament::company.registeration');
     }
 
-    public $name;
-    public $cr_number;
-    public $about;
-    public $filed;
-    public $others;
-    public $owner_fullname;
-    public $owner_phone;
-    public $owner_email;
-    public $owner_civil_id;
-    public $cr_copy;
-    public $chamber_ceritifcate_copy;
-    public $VAT_ceritifcate_copy;
-    public $readah_ceritifcate_copy;
 
     protected function getFormSchema(): array
     {

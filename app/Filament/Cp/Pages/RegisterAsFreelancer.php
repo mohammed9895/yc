@@ -10,6 +10,7 @@ use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Concerns\InteractsWithForms;
 use Filament\Forms\Contracts\HasForms;
+use Filament\Forms\Form;
 use Filament\Notifications\Notification;
 use Filament\Pages\Page;
 use Filament\Tables\Actions\Action;
@@ -21,6 +22,8 @@ use Illuminate\Database\Eloquent\Builder;
 class RegisterAsFreelancer extends Page implements HasForms, HasTable
 {
     use InteractsWithForms,  InteractsWithTable;
+
+    public array $data = [];
 
     public static function getNavigationGroup(): ?string
     {
@@ -46,12 +49,12 @@ class RegisterAsFreelancer extends Page implements HasForms, HasTable
         $this->form->fill();
     }
 
-    protected function getFormSchema(): array
+    public function form(Form $form): Form
     {
-        return [
+        return $form
+            ->schema([
             FileUpload::make('civil_copy')
                 ->label(__('Civil Copy'))
-                ->enableDownload()
                 ->required(),
             Select::make('field_id')
                 ->label(__('Field'))
@@ -66,15 +69,13 @@ class RegisterAsFreelancer extends Page implements HasForms, HasTable
                 }
             }),
             FileUpload::make('cr_copy')
-                ->enableDownload()
                 ->label(__('cr_copy')),
             FileUpload::make('profile_file')
                 ->label(__('Work Files'))
-                ->enableDownload()
                 ->multiple(),
             TextInput::make('profile_link')
                 ->label(__('Profile Link')),
-        ];
+        ])->statePath('data');
     }
 
     protected function getTableQuery(): Builder
@@ -120,7 +121,7 @@ class RegisterAsFreelancer extends Page implements HasForms, HasTable
 
         $booking = Freelancers::create($orginal);
 
-        auth()->user()->assignRole('company');
+//        auth()->user()->assignRole('company');
         if ($booking) {
             $sms = new SmsMessage;
             if (auth()->user()->preferred_language == 'ar') {

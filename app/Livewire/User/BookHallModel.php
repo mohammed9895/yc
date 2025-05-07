@@ -74,13 +74,17 @@ class BookHallModel extends ModalComponent
 
     protected function createEvent()
     {
-        $start = Carbon::parse($this->form->date)->setTimeFromTimeString('18:30');
+
+        reset($this->form->slots);
+        $firstElement = current($this->form->slots);
+
+        $start = Carbon::parse($this->form->date)->setTimeFromTimeString($firstElement);
         $end = Carbon::parse($this->form->date)->setTimeFromTimeString(end($this->form->slots))->addMinutes(30);
 
         // check if the end time is after the start time
         if ($end->lessThanOrEqualTo($start)) {
             $this->addError('form.time', 'The end time must be after the start time.');
-            return;
+            return ;
         }
 
         return Event::create([
