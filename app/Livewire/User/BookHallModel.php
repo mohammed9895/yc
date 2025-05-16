@@ -83,12 +83,7 @@ class BookHallModel extends ModalComponent
         // check if the end time is after the start time
         if ($end->lessThanOrEqualTo($start)) {
             $this->addError('form.time', 'The end time must be after the start time.');
-<<<<<<< HEAD
-=======
-            dd('error');
->>>>>>> 2905ca2 (ddd)
         }
-
         return Event::create([
                 'title' => $this->form->title,
                 'user_id' => auth()->id(),
