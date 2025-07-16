@@ -71,7 +71,7 @@ class BookingModel extends ModalComponent
                         $this->closeModal();
 
                         return Notification::make()
-                            ->title('You have not choose a slot!')
+                            ->title('You have not choose a slot  or it fully booked!')
                             ->danger()
                             ->send();
 
