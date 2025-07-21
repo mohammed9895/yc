@@ -221,7 +221,7 @@ class Booking extends Page implements HasTable
                     $evaluations = Evaluate::where('user_id', Auth::id(),)->where('workshop_id',
                         $record->workshop_id)->get();
                     if (count($evaluations) === 0) {
-                        $this->emit('openModal', 'user.evaluate-model', ['booking' => $record]);
+                        $this->dispatch('openModal', 'user.evaluate-model', ['booking' => $record]);
                     } else {
                         $this->dispatch('downloadCertificate');
                     }
