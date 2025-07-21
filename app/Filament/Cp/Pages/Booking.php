@@ -8,6 +8,7 @@ use App\Models\Slot;
 use App\Models\User;
 use App\Models\Workshop;
 use App\Notifications\SmsMessage;
+use ArPHP\I18N\Arabic;
 use BezhanSalleh\FilamentShield\Traits\HasPageShield;
 use Carbon\Carbon;
 use Filament\Notifications\Notification;
@@ -129,7 +130,7 @@ class Booking extends Page implements HasTable
             $fpdi->SetFont("NeoSansArabic", "M", 18, '', true);
             $fpdi->SetTextColor(59, 87, 167);
             $fpdi->SetY(111);
-            $Arabic = new \ArPHP\I18N\Arabic();
+            $Arabic = new Arabic();
             $name_str = $Arabic->utf8Glyphs($text[0]);
             $fpdi->Cell(0, 0, $name_str, 0, 0, 'C');
 
