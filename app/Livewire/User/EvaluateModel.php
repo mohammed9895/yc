@@ -116,7 +116,7 @@ class EvaluateModel extends ModalComponent implements HasForms
             'suggestions' => $this->suggestions,
         ]);
 
-        $this->emit('downloadCertificate');
+        $this->dispatch('downloadCertificate');
         Notification::make()
             ->title('Yorr evaluation has been sent successfuly!')
             ->success()
