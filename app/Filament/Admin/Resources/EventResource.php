@@ -27,6 +27,7 @@ use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Mail;
+use pxlrbt\FilamentExcel\Actions\Tables\ExportBulkAction;
 use Spatie\CalendarLinks\Link;
 
 class EventResource extends Resource
@@ -180,6 +181,7 @@ class EventResource extends Resource
 
             ])
             ->bulkActions([
+                ExportBulkAction::make(),
                 Tables\Actions\DeleteBulkAction::make(),
                 BulkAction::make('approve')
                     ->action(function (Collection $records) {
