@@ -4,7 +4,7 @@
             شاركنا شغفك
         </h1>
         <h2 class="text-gray-600 text-4xl text-center">إذا كنت صاحب عمل حر شارك إبداعك معنا</h2>
-        <a href="#" class="bg-[#000647] px-10 py-5 text-white rounded-full text-xl inline-block mt-10">سجل في تمكن</a>
+        <a href="https://yc.om/bolt/tmkn-alnskh-althalth" class="bg-[#000647] px-10 py-5 text-white rounded-full text-xl inline-block mt-10 z-50">سجل في تمكن</a>
         <div class="absolute -left-24 -top-10 z-10">
             <img src="{{ asset('images/green-shape.svg') }}" alt="">
         </div>
