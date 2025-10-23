@@ -19,11 +19,13 @@ use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Filters\Filter;
 use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Model;
 use pxlrbt\FilamentExcel\Actions\Tables\ExportBulkAction;
 use Spatie\Permission\Models\Role;
+use Illuminate\Database\Eloquent\Builder;
 
 class UserResource extends Resource
 {
@@ -195,6 +197,23 @@ class UserResource extends Resource
                     ->multiple()
                     ->label('Employee Type')
                     ->options(EmployeeType::all()->pluck('name', 'id')),
+                Filter::make('date')
+                    ->form([
+                        DatePicker::make('created_from')->label(__('filament::yc.created_from')),
+                        DatePicker::make('created_until')->label(__('filament::yc.created_until')),
+                    ])
+                    ->label(__('filament::yc.date'))
+                    ->query(function (Builder $query, array $data): Builder {
+                        return $query
+                            ->when(
+                                $data['created_from'],
+                                fn(Builder $query, $date): Builder => $query->whereDate('created_at', '>=', $date),
+                            )
+                            ->when(
+                                $data['created_until'],
+                                fn(Builder $query, $date): Builder => $query->whereDate('created_at', '<=', $date),
+                            );
+                    }),
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
