@@ -34,9 +34,18 @@ class SendMuscatSmsJob implements ShouldQueue
 
         // build message + $lang here (same as before)
 
-        $users = User::where('governorate', 'Muscat')
+        $users = User::where('province_id', '1')
             ->whereNotNull('phone')
             ->get();
+
+        // Message based on locale
+        if (Config::get('app.locale') === 'ar') {
+            $message = "أجواء الشتاء بتكون غير مع لمّتنا الشبابية 🌙❄️ https://yc.om/cp/";
+            $lang = '64';
+        } else {
+            $message = "Winter vibes hit different with our youth gathering ❄️🌙 https://yc.om/cp";
+            $lang = '0';
+        }
 
         foreach ($users as $user) {
             $phone = $user->phone;
