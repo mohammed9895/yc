@@ -51,15 +51,16 @@ class SendMuscatSmsJob implements ShouldQueue
             $phone = $user->phone;
 
             try {
-                $res = Http::post('https://www.ismartsms.net/iBulkSMS/HttpWS/SMSDynamicAPI.aspx', [
-                    'UserId'       => env('User_ID_OTP'),
-                    'Password'     => env('OTP_Password'),
-                    'MobileNo'     => $phone,
-                    'Message'      => $message,
-                    'PushDateTime' => now()->format('m/d/Y H:i:s'),
-                    'Lang'         => $lang,
-                    'FLashSMS'     => 'N',
-                ]);
+                $res = Http::post(
+                    'https://www.ismartsms.net/iBulkSMS/HttpWS/SMSDynamicAPI.aspx'
+                    . '?UserId=' . env('User_ID_OTP', 'youthsmsweb')
+                    . '&Password=' . env('OTP_Password', 'L!ulid80')
+                    . '&MobileNo=' . $phone
+                    . '&Message=' . $message
+                    . '&PushDateTime=10/12/2022 02:03'
+                    . '&Lang=' . $lang
+                    . '&FLashSMS=N'
+                );
 
                 Log::info('Muscat SMS sent', [
                     'phone' => $phone,
