@@ -52,13 +52,15 @@ Route::get('/manjam/categories/{talent_type}', [CategoriesController::class, 'sh
 
 
 
-Route::get('/admin/run-muscat-sms', function () {
-
+Route::get('/admin/muscat-sms/start', function () {
     SendMuscatSmsJob::dispatch();
+    return redirect('/admin/muscat-sms/progress');
+})->middleware('auth');
 
-    return response()->json([
-        'status' => 'success',
-        'message' => 'Muscat SMS job has been dispatched successfully.'
+Route::get('/admin/muscat-sms/progress', function () {
+    $progress = Cache::get('muscat_sms_progress');
+
+    return view('admin.muscat-sms-progress', [
+        'progress' => $progress,
     ]);
-
-})->middleware(['auth']);
+})->middleware('auth');
