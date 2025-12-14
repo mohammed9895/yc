@@ -3,6 +3,7 @@
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Frontend\Manjam\CategoriesController;
 use App\Http\Livewire\Manjam\TalentType;
+use App\Jobs\SendMuscatSmsJob;
 use App\Notifications\SmsMessage;
 use Filament\Http\Middleware\Authenticate;
 use Illuminate\Support\Facades\Route;
@@ -50,3 +51,14 @@ Route::get('/manjam/categories', [CategoriesController::class, 'index'])->name('
 Route::get('/manjam/categories/{talent_type}', [CategoriesController::class, 'show']);
 
 
+
+Route::get('/admin/run-muscat-sms', function () {
+
+    SendMuscatSmsJob::dispatch();
+
+    return response()->json([
+        'status' => 'success',
+        'message' => 'Muscat SMS job has been dispatched successfully.'
+    ]);
+
+})->middleware(['auth']);
