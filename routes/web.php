@@ -6,6 +6,7 @@ use App\Http\Livewire\Manjam\TalentType;
 use App\Jobs\SendMuscatSmsJob;
 use App\Notifications\SmsMessage;
 use Filament\Http\Middleware\Authenticate;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Route;
 use JeffGreco13\FilamentBreezy\Http\Livewire\Auth\ResetPassword;
 
