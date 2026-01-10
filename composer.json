@@ -16,7 +16,7 @@
         "kenepa/translation-manager": "^4.0",
         "khaled.alshamaa/ar-php": "^7.0",
         "lara-zeus/bolt": "^3.0",
-        "laravel/framework": "^11.0",
+        "laravel/framework": "^12.0",
         "laravel/sanctum": "^4.0",
         "laravel/tinker": "^2.9",
         "livewire/livewire": "^3.4",
@@ -39,8 +39,8 @@
         "laravel/sail": "^1.26",
         "mockery/mockery": "^1.6",
         "nunomaduro/collision": "^8.0",
-        "pestphp/pest": "^2.34",
-        "pestphp/pest-plugin-laravel": "^2.4",
+        "pestphp/pest": "^3.0",
+        "pestphp/pest-plugin-laravel": "^3.0.5",
         "spatie/laravel-ignition": "^2.4"
     },
     "autoload": {
