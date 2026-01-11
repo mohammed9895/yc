@@ -2,6 +2,7 @@
 
 namespace App\Filament\Admin\Widgets;
 
+use Filament\Tables\Columns\TextColumn;
 use App\Models\Event;
 use App\Models\Hall;
 use Filament\Tables;
@@ -24,9 +25,9 @@ class LatestEvents extends BaseWidget
     protected function getTableColumns(): array
     {
         return [
-            Tables\Columns\TextColumn::make('user.name'),
-            Tables\Columns\TextColumn::make('hall.name'),
-            Tables\Columns\TextColumn::make('created_at')->since(),
+            TextColumn::make('user.name'),
+            TextColumn::make('hall.name'),
+            TextColumn::make('created_at')->since(),
         ];
     }
     protected function getTableFilters(): array

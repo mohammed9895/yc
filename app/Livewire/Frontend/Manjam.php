@@ -2,6 +2,10 @@
 
 namespace App\Livewire\Frontend;
 
+use Filament\Actions\Contracts\HasActions;
+use Filament\Actions\Concerns\InteractsWithActions;
+use Filament\Schemas\Components\Wizard;
+use Filament\Schemas\Components\Wizard\Step;
 use App\Models\Talent;
 use App\Models\TalentType;
 use App\Notifications\SmsMessage;
@@ -10,14 +14,14 @@ use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TagsInput;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
-use Filament\Forms\Components\Wizard;
 use Filament\Forms\Concerns\InteractsWithForms;
 use Filament\Forms\Contracts\HasForms;
 use Illuminate\Support\HtmlString;
 use Livewire\Component;
 
-class Manjam extends Component implements HasForms
+class Manjam extends Component implements HasForms, HasActions
 {
+    use InteractsWithActions;
     use InteractsWithForms;
 
     public function mount(): void
@@ -67,7 +71,7 @@ class Manjam extends Component implements HasForms
     {
         return [
             Wizard::make([
-                Wizard\Step::make(__('General Information'))
+                Step::make(__('General Information'))
                     ->schema([
                         Select::make('talent_type_id')
                             ->label(__('Talent Type'))
@@ -87,7 +91,7 @@ class Manjam extends Component implements HasForms
                             ->label(__('Certificates'))
                             ->placeholder(__('certificate of achievement, completion certificates, or even appreciation certificate...')),
                     ]),
-                Wizard\Step::make(__('Video and Images'))
+                Step::make(__('Video and Images'))
                     ->schema([
                         FileUpload::make('video')
                             ->label(__('video'))
@@ -98,7 +102,7 @@ class Manjam extends Component implements HasForms
                             ->required()
                             ->image(),
                     ]),
-                Wizard\Step::make(__('Contact Information'))
+                Step::make(__('Contact Information'))
                     ->schema([
                         TextInput::make('phone')
                             ->label(__('phone'))

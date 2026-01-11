@@ -2,13 +2,13 @@
 
 namespace App\Filament\Cp\Pages;
 
+use Filament\Actions\Action;
 use App\Models\Event;
 use App\Models\User;
 use App\Notifications\SmsMessage;
 use BezhanSalleh\FilamentShield\Traits\HasPageShield;
 use Filament\Pages\Page;
 use Filament\Support\Contracts\TranslatableContentDriver;
-use Filament\Tables\Actions\Action;
 use Filament\Tables\Columns\BadgeColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Concerns\InteractsWithTable;
@@ -20,9 +20,9 @@ class MyHallBooking extends Page implements HasTable
 {
 //    use HasPageShield;
 
-    protected static ?string $navigationIcon = 'heroicon-o-document-text';
+    protected static string | \BackedEnum | null $navigationIcon = 'heroicon-o-document-text';
 
-    protected static string $view = 'filament.pages.my-hall-booking';
+    protected string $view = 'filament.pages.my-hall-booking';
 
     public static function getNavigationGroup(): ?string
     {

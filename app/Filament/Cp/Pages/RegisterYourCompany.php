@@ -2,7 +2,9 @@
 
 namespace App\Filament\Cp\Pages;
 
-use App\Filament\Admin\Resources\UserResource;
+use Filament\Schemas\Components\Wizard;
+use Filament\Schemas\Components\Wizard\Step;
+use App\Filament\Admin\Resources\Users\UserResource;
 use App\Models\Company;
 use App\Models\Field;
 use App\Notifications\SmsMessage;
@@ -11,7 +13,6 @@ use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
-use Filament\Forms\Components\Wizard;
 use Filament\Forms\Concerns\InteractsWithForms;
 use Filament\Forms\Contracts\HasForms;
 use Filament\Notifications\Notification;
@@ -27,9 +28,9 @@ class RegisterYourCompany extends Page implements HasForms, HasTable
 {
     use InteractsWithForms, InteractsWithTable;
 
-    protected static ?string $navigationIcon = 'heroicon-o-document-text';
+    protected static string | \BackedEnum | null $navigationIcon = 'heroicon-o-document-text';
 
-    protected static string $view = 'filament.pages.register-your-company';
+    protected string $view = 'filament.pages.register-your-company';
 
     public static function getNavigationGroup(): ?string
     {
@@ -51,7 +52,7 @@ class RegisterYourCompany extends Page implements HasForms, HasTable
     {
         return [
             Wizard::make([
-                Wizard\Step::make(__('filament::company.information'))
+                Step::make(__('filament::company.information'))
                     ->schema([
                         TextInput::make('name')
                             ->label(__('Name'))
@@ -78,7 +79,7 @@ class RegisterYourCompany extends Page implements HasForms, HasTable
                             }
                         }),
                     ]),
-                Wizard\Step::make(__('companyـowner'))
+                Step::make(__('companyـowner'))
                     ->schema([
                         TextInput::make('owner_fullname')
                             ->required()
@@ -99,7 +100,7 @@ class RegisterYourCompany extends Page implements HasForms, HasTable
                             ->required()
                             ->maxLength(255),
                     ]),
-                Wizard\Step::make(__('companyـdocument'))
+                Step::make(__('companyـdocument'))
                     ->schema([
                         FileUpload::make('cr_copy')
                             ->enableDownload()

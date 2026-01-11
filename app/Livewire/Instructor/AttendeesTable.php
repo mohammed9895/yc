@@ -2,6 +2,8 @@
 
 namespace App\Livewire\Instructor;
 
+use Filament\Actions\Contracts\HasActions;
+use Filament\Actions\Concerns\InteractsWithActions;
 use App\Models\Booking;
 use Livewire\Component;
 use App\Models\Workshop;
@@ -16,8 +18,9 @@ use Filament\Forms\Components\DatePicker;
 use Filament\Tables\Concerns\InteractsWithTable;
 use Illuminate\Contracts\Database\Eloquent\Builder;
 
-class AttendeesTable extends Component implements HasTable
+class AttendeesTable extends Component implements HasTable, HasActions
 {
+    use InteractsWithActions;
     use InteractsWithTable;
 
     protected function getTableQuery(): Builder
@@ -54,7 +57,7 @@ class AttendeesTable extends Component implements HasTable
                 ->query(fn (Builder $query): Builder => $query->where('attendance', 1))->toggle(),
 
             Filter::make('slot')
-                ->form([
+                ->schema([
                     Select::make('slot')->options(Attendees::join('slots', 'attendees.slot_id', '=', 'slots.id')->where('user_id', '=', Auth::id())->pluck('slots.name', 'slots.id'))->searchable()->label(__('filament::yc.slot')),
                 ])->query(function (Builder $query, array $data): Builder {
 
@@ -71,7 +74,7 @@ class AttendeesTable extends Component implements HasTable
 
 
             Filter::make('date')
-                ->form([
+                ->schema([
                     DatePicker::make('created_from')->label(__('filament::yc.created_from')),
                     DatePicker::make('created_until')->label(__('filament::yc.created_until')),
                 ])

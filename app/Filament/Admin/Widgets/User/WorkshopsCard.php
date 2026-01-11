@@ -2,22 +2,22 @@
 
 namespace App\Filament\Admin\Widgets\User;
 
+use Filament\Widgets\StatsOverviewWidget\Stat;
 use App\Models\Booking;
 use App\Models\Hall;
 use App\Models\Workshop;
 use Filament\Widgets\StatsOverviewWidget as BaseWidget;
-use Filament\Widgets\StatsOverviewWidget\Card;
 
 class WorkshopsCard extends BaseWidget
 {
     protected function getCards(): array
     {
         return [
-            Card::make(__('workshops'), Workshop::where('status', 1)->count())
+            Stat::make(__('workshops'), Workshop::where('status', 1)->count())
                 ->extraAttributes(['wire:click' => 'redirectToWorkshops', 'class' => 'cursor-pointer']),
-           Card::make(__('halls'), Hall::where('status', 1)->count())
+           Stat::make(__('halls'), Hall::where('status', 1)->count())
                 ->extraAttributes(['wire:click' => 'redirectToHalls', 'class' => 'cursor-pointer']),
-            Card::make(__('workshop_bookings'), Booking::where('user_id', auth()->user()->id)
+            Stat::make(__('workshop_bookings'), Booking::where('user_id', auth()->user()->id)
                         ->count())
                         ->extraAttributes(['wire:click' => 'redirectToBookings', 'class' => 'cursor-pointer']),
         ];

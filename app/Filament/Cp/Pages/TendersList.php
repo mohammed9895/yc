@@ -11,9 +11,9 @@ use Illuminate\Support\Facades\Storage;
 class TendersList extends Page
 {
 
-    protected static ?string $navigationIcon = 'heroicon-o-document-text';
+    protected static string | \BackedEnum | null $navigationIcon = 'heroicon-o-document-text';
 
-    protected static string $view = 'filament.pages.tenders-list';
+    protected string $view = 'filament.pages.tenders-list';
 
 
     public function getTitle(): string

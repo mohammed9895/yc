@@ -9,9 +9,9 @@ class MyWorkshops extends Page
 {
     use HasPageShield;
 
-    protected static ?string $navigationIcon = 'heroicon-o-document-text';
+    protected static string | \BackedEnum | null $navigationIcon = 'heroicon-o-document-text';
 
-    protected static string $view = 'filament.pages.my-workshops';
+    protected string $view = 'filament.pages.my-workshops';
 
     public static function getNavigationGroup(): ?string
     {

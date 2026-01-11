@@ -2,6 +2,9 @@
 
 namespace App\Providers\Filament;
 
+use Filament\Pages\Dashboard;
+use Filament\Widgets\AccountWidget;
+use Filament\Widgets\FilamentInfoWidget;
 use App\Filament\Cp\Pages\Auth\Login;
 use App\Http\Middleware\VerifyPhone;
 use App\Livewire\Auth\Register;
@@ -43,12 +46,12 @@ class CpPanelProvider extends PanelProvider
             ->discoverResources(in: app_path('Filament/Cp/Resources'), for: 'App\\Filament\\Cp\\Resources')
             ->discoverPages(in: app_path('Filament/Cp/Pages'), for: 'App\\Filament\\Cp\\Pages')
             ->pages([
-                Pages\Dashboard::class,
+                Dashboard::class,
             ])
             ->discoverWidgets(in: app_path('Filament/Cp/Widgets'), for: 'App\\Filament\\Cp\\Widgets')
             ->widgets([
-                Widgets\AccountWidget::class,
-                Widgets\FilamentInfoWidget::class,
+                AccountWidget::class,
+                FilamentInfoWidget::class,
             ])
             ->middleware([
                 EncryptCookies::class,
@@ -66,13 +69,6 @@ class CpPanelProvider extends PanelProvider
                 Authenticate::class,
             ])->viteTheme('resources/css/filament/cp/theme.css')
 //            ->plugin(SpatieLaravelTranslatablePlugin::make())
-            ->plugin(TranslationManagerPlugin::make())
-            ->plugin(BoltPlugin::make())
-            ->plugin(
-                BreezyCore::make()->myProfile(
-                    shouldRegisterNavigation: true, // Adds a main navigation item for the My Profile page (default = false)
-                    navigationGroup: 'Settings', // Sets the navigation group for the My Profile page (default = null)
-                    hasAvatars: true, // Enables the avatar upload form component (default = false)
-                ));
+            ->plugin(BoltPlugin::make());
     }
 }

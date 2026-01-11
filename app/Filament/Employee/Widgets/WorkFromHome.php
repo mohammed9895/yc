@@ -2,6 +2,7 @@
 
 namespace App\Filament\Employee\Widgets;
 
+use App\Models\WorkFromHomeRequest;
 use App\LeaveStatus;
 use App\Models\Employee;
 use App\WorkFromHomeStatus;
@@ -18,7 +19,7 @@ class WorkFromHome extends BaseWidget
 
         $employee  = Employee::where('user_id', auth()->id())->first();
 
-        $totalLeaveDays = \App\Models\WorkFromHomeRequest::where('employee_id', $employee->id)
+        $totalLeaveDays = WorkFromHomeRequest::where('employee_id', $employee->id)
             ->whereIn('status', [WorkFromHomeStatus::AcceptedByCEO, WorkFromHomeStatus::AcceptedByDirectManger])
             ->get()
             ->sum(function ($leave) {

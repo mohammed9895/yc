@@ -2,9 +2,9 @@
 
 namespace App\Filament\Admin\Widgets;
 
+use Filament\Widgets\StatsOverviewWidget\Stat;
 use App\Models\User;
 use Filament\Widgets\StatsOverviewWidget as BaseWidget;
-use Filament\Widgets\StatsOverviewWidget\Card;
 
 class UsersOverview extends BaseWidget
 {
@@ -28,14 +28,14 @@ class UsersOverview extends BaseWidget
     {
         $averageAge = User::selectRaw('AVG(TIMESTAMPDIFF(YEAR, birth_date, CURDATE())) as average_age')->value('average_age');
         return [
-            Card::make('Total Users', User::count()),
-            Card::make('Users Registered Today', User::whereDate('created_at', today())->count()),
-            Card::make('Users Registered This Month', User::whereMonth('created_at', '=', date('m'))->count()),
-            Card::make('Male Users', User::where('gender', '=', 0)->count()),
-            Card::make('Female Users', User::where('gender', '=', 1)->count()),
-            Card::make('Residents Users', User::where('citizen', '=', 1)->count()),
-            Card::make('Omani Users', User::where('citizen', '=', 0)->count()),
-            Card::make('Average Age', (int)$averageAge),
+            Stat::make('Total Users', User::count()),
+            Stat::make('Users Registered Today', User::whereDate('created_at', today())->count()),
+            Stat::make('Users Registered This Month', User::whereMonth('created_at', '=', date('m'))->count()),
+            Stat::make('Male Users', User::where('gender', '=', 0)->count()),
+            Stat::make('Female Users', User::where('gender', '=', 1)->count()),
+            Stat::make('Residents Users', User::where('citizen', '=', 1)->count()),
+            Stat::make('Omani Users', User::where('citizen', '=', 0)->count()),
+            Stat::make('Average Age', (int)$averageAge),
         ];
     }
 

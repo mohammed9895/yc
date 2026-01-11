@@ -6,33 +6,22 @@
       'EloquentSerialize' => 'AnourValar\\EloquentSerialize\\Facades\\EloquentSerializeFacade',
     ),
   ),
-  'archtechx/laravel-seo' => 
+  'bezhansalleh/filament-plugin-essentials' => 
   array (
     'providers' => 
     array (
-      0 => 'ArchTech\\SEO\\SEOServiceProvider',
-    ),
-  ),
-  'bezhansalleh/filament-google-analytics' => 
-  array (
-    'providers' => 
-    array (
-      0 => 'BezhanSalleh\\FilamentGoogleAnalytics\\FilamentGoogleAnalyticsServiceProvider',
-    ),
-    'aliases' => 
-    array (
-      'FilamentGoogleAnalytics' => 'BezhanSalleh\\FilamentGoogleAnalytics\\Facades\\FilamentGoogleAnalytics',
+      0 => 'BezhanSalleh\\PluginEssentials\\PluginEssentialsServiceProvider',
     ),
   ),
   'bezhansalleh/filament-shield' => 
   array (
-    'providers' => 
-    array (
-      0 => 'BezhanSalleh\\FilamentShield\\FilamentShieldServiceProvider',
-    ),
     'aliases' => 
     array (
       'FilamentShield' => 'BezhanSalleh\\FilamentShield\\Facades\\FilamentShield',
+    ),
+    'providers' => 
+    array (
+      0 => 'BezhanSalleh\\FilamentShield\\FilamentShieldServiceProvider',
     ),
   ),
   'blade-ui-kit/blade-heroicons' => 
@@ -47,20 +36,6 @@
     'providers' => 
     array (
       0 => 'BladeUI\\Icons\\BladeIconsServiceProvider',
-    ),
-  ),
-  'codeat3/blade-clarity-icons' => 
-  array (
-    'providers' => 
-    array (
-      0 => 'Codeat3\\BladeClarityIcons\\BladeClarityIconsServiceProvider',
-    ),
-  ),
-  'codeat3/blade-iconpark' => 
-  array (
-    'providers' => 
-    array (
-      0 => 'Codeat3\\BladeIconpark\\BladeIconparkServiceProvider',
     ),
   ),
   'filament/actions' => 
@@ -98,11 +73,18 @@
       0 => 'Filament\\Notifications\\NotificationsServiceProvider',
     ),
   ),
-  'filament/spatie-laravel-translatable-plugin' => 
+  'filament/query-builder' => 
   array (
     'providers' => 
     array (
-      0 => 'Filament\\SpatieLaravelTranslatablePluginServiceProvider',
+      0 => 'Filament\\QueryBuilder\\QueryBuilderServiceProvider',
+    ),
+  ),
+  'filament/schemas' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'Filament\\Schemas\\SchemasServiceProvider',
     ),
   ),
   'filament/support' => 
@@ -119,6 +101,13 @@
       0 => 'Filament\\Tables\\TablesServiceProvider',
     ),
   ),
+  'filament/upgrade' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'Filament\\Upgrade\\UpgradeServiceProvider',
+    ),
+  ),
   'filament/widgets' => 
   array (
     'providers' => 
@@ -128,38 +117,35 @@
   ),
   'flowframe/laravel-trend' => 
   array (
-    'providers' => 
-    array (
-      0 => 'Flowframe\\Trend\\TrendServiceProvider',
-    ),
     'aliases' => 
     array (
       'Trend' => 'Flowframe\\Trend\\TrendFacade',
     ),
+    'providers' => 
+    array (
+      0 => 'Flowframe\\Trend\\TrendServiceProvider',
+    ),
   ),
   'guava/filament-icon-picker' => 
   array (
-    'providers' => 
-    array (
-      0 => 'Guava\\FilamentIconPicker\\FilamentIconPickerServiceProvider',
-    ),
-  ),
-  'jeffgreco13/filament-breezy' => 
-  array (
-    'providers' => 
-    array (
-      0 => 'Jeffgreco13\\FilamentBreezy\\FilamentBreezyServiceProvider',
-    ),
     'aliases' => 
     array (
-      'FilamentBreezy' => 'Jeffgreco13\\FilamentBreezy\\Facades\\FilamentBreezy',
+      'IconPicker' => 'IconManager',
     ),
-  ),
-  'kenepa/translation-manager' => 
-  array (
     'providers' => 
     array (
-      0 => 'Kenepa\\TranslationManager\\TranslationManagerProvider',
+      0 => 'Guava\\IconPicker\\IconPickerServiceProvider',
+    ),
+  ),
+  'intervention/image' => 
+  array (
+    'aliases' => 
+    array (
+      'Image' => 'Intervention\\Image\\Facades\\Image',
+    ),
+    'providers' => 
+    array (
+      0 => 'Intervention\\Image\\ImageServiceProvider',
     ),
   ),
   'kirschbaum-development/eloquent-power-joins' => 
@@ -178,24 +164,38 @@
   ),
   'lara-zeus/bolt' => 
   array (
-    'providers' => 
-    array (
-      0 => 'LaraZeus\\Bolt\\BoltServiceProvider',
-    ),
     'aliases' => 
     array (
       'Bolt' => 'LaraZeus\\Bolt\\Facades\\Bolt',
     ),
+    'providers' => 
+    array (
+      0 => 'LaraZeus\\Bolt\\BoltServiceProvider',
+    ),
   ),
   'lara-zeus/core' => 
   array (
+    'aliases' => 
+    array (
+      'Core' => 'LaraZeus\\Core\\CoreFacade',
+    ),
     'providers' => 
     array (
       0 => 'LaraZeus\\Core\\CoreServiceProvider',
     ),
-    'aliases' => 
+  ),
+  'lara-zeus/filament-plugin-tools' => 
+  array (
+    'providers' => 
     array (
-      'Core' => 'LaraZeus\\Core\\CoreFacade',
+      0 => 'LaraZeus\\FilamentPluginTools\\FilamentPluginToolsServiceProvider',
+    ),
+  ),
+  'lara-zeus/laravel-seo' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'LaraZeus\\SEO\\SEOServiceProvider',
     ),
   ),
   'lara-zeus/list-group' => 
@@ -203,6 +203,20 @@
     'providers' => 
     array (
       0 => 'LaraZeus\\ListGroup\\ListGroupServiceProvider',
+    ),
+  ),
+  'lara-zeus/spatie-translatable' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'LaraZeus\\SpatieTranslatable\\SpatieTranslatableServiceProvider',
+    ),
+  ),
+  'lara-zeus/tabler-icons-enum' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'LaraZeus\\Tabler\\TablerServiceProvider',
     ),
   ),
   'laravel/sail' => 
@@ -228,24 +242,24 @@
   ),
   'livewire/livewire' => 
   array (
-    'providers' => 
-    array (
-      0 => 'Livewire\\LivewireServiceProvider',
-    ),
     'aliases' => 
     array (
       'Livewire' => 'Livewire\\Livewire',
     ),
+    'providers' => 
+    array (
+      0 => 'Livewire\\LivewireServiceProvider',
+    ),
   ),
   'maatwebsite/excel' => 
   array (
-    'providers' => 
-    array (
-      0 => 'Maatwebsite\\Excel\\ExcelServiceProvider',
-    ),
     'aliases' => 
     array (
       'Excel' => 'Maatwebsite\\Excel\\Facades\\Excel',
+    ),
+    'providers' => 
+    array (
+      0 => 'Maatwebsite\\Excel\\ExcelServiceProvider',
     ),
   ),
   'nesbot/carbon' => 
@@ -292,42 +306,31 @@
   ),
   'ryangjchandler/blade-capture-directive' => 
   array (
-    'providers' => 
-    array (
-      0 => 'RyanChandler\\BladeCaptureDirective\\BladeCaptureDirectiveServiceProvider',
-    ),
     'aliases' => 
     array (
       'BladeCaptureDirective' => 'RyanChandler\\BladeCaptureDirective\\Facades\\BladeCaptureDirective',
     ),
+    'providers' => 
+    array (
+      0 => 'RyanChandler\\BladeCaptureDirective\\BladeCaptureDirectiveServiceProvider',
+    ),
   ),
-  'ryangjchandler/blade-tabler-icons' => 
+  'secondnetwork/blade-tabler-icons' => 
   array (
     'providers' => 
     array (
-      0 => 'RyanChandler\\TablerIcons\\BladeTablerIconsServiceProvider',
-    ),
-  ),
-  'spatie/laravel-analytics' => 
-  array (
-    'providers' => 
-    array (
-      0 => 'Spatie\\Analytics\\AnalyticsServiceProvider',
-    ),
-    'aliases' => 
-    array (
-      'Analytics' => 'Spatie\\Analytics\\Facades\\Analytics',
+      0 => 'secondnetwork\\TablerIcons\\BladeTablerIconsServiceProvider',
     ),
   ),
   'spatie/laravel-ignition' => 
   array (
-    'providers' => 
-    array (
-      0 => 'Spatie\\LaravelIgnition\\IgnitionServiceProvider',
-    ),
     'aliases' => 
     array (
       'Flare' => 'Spatie\\LaravelIgnition\\Facades\\Flare',
+    ),
+    'providers' => 
+    array (
+      0 => 'Spatie\\LaravelIgnition\\IgnitionServiceProvider',
     ),
   ),
   'spatie/laravel-permission' => 
@@ -349,20 +352,6 @@
     'providers' => 
     array (
       0 => 'Spatie\\Translatable\\TranslatableServiceProvider',
-    ),
-  ),
-  'spatie/laravel-translation-loader' => 
-  array (
-    'providers' => 
-    array (
-      0 => 'Spatie\\TranslationLoader\\TranslationServiceProvider',
-    ),
-  ),
-  'stijnvanouplines/blade-country-flags' => 
-  array (
-    'providers' => 
-    array (
-      0 => 'StijnVanouplines\\BladeCountryFlags\\BladeCountryFlagsServiceProvider',
     ),
   ),
   'wire-elements/modal' => 

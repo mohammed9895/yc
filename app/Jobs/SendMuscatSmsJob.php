@@ -2,6 +2,7 @@
 
 namespace App\Jobs;
 
+use Throwable;
 use App\Models\User;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
@@ -75,7 +76,7 @@ class SendMuscatSmsJob implements ShouldQueue
                 $p['items'] = array_slice($p['items'], -200); // keep last 200 only
                 Cache::put($key, $p, now()->addHours(6));
 
-            } catch (\Throwable $e) {
+            } catch (Throwable $e) {
                 Log::error('Muscat SMS failed', [
                     'phone' => $phone,
                     'error' => $e->getMessage(),

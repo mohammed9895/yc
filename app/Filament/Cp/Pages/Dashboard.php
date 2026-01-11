@@ -18,7 +18,7 @@ class Dashboard extends BasePage
 {
     // use HasPageShield;
 
-    protected static string $view = 'filament.pages.dashboard';
+    protected string $view = 'filament.pages.dashboard';
 
     protected function getHeaderWidgets(): array
     {

@@ -2,6 +2,10 @@
 
 namespace App\Filament\Employee\Pages;
 
+use Filament\Schemas\Schema;
+use Filament\Schemas\Components\Section;
+use Filament\Schemas\Components\Utilities\Get;
+use App\Filament\Employee\Widgets\WorkFromHome;
 use App\LeaveStatus;
 use App\Models\Employee;
 use App\Models\Leave;
@@ -11,8 +15,6 @@ use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Concerns\InteractsWithForms;
 use Filament\Forms\Contracts\HasForms;
-use Filament\Forms\Form;
-use Filament\Forms\Get;
 use Filament\Notifications\Notification;
 use Filament\Pages\Page;
 use Filament\Tables\Columns\TextColumn;
@@ -24,9 +26,9 @@ class WorkFromHomeRequest extends Page implements HasForms, HasTable
 {
     use InteractsWithForms, InteractsWithTable;
 
-    protected static ?string $navigationIcon = 'heroicon-o-home-modern';
+    protected static string | \BackedEnum | null $navigationIcon = 'heroicon-o-home-modern';
 
-    protected static string $view = 'filament.employee.pages.work-from-home-request';
+    protected string $view = 'filament.employee.pages.work-from-home-request';
 
     public array $data = [];
 
@@ -35,10 +37,10 @@ class WorkFromHomeRequest extends Page implements HasForms, HasTable
         $this->form->fill();
     }
 
-    public function form(Form $form): Form
+    public function form(Schema $schema): Schema
     {
-        return $form->schema([
-            \Filament\Forms\Components\Section::make('')
+        return $schema->components([
+            Section::make('')
                 ->schema([
                     DatePicker::make('from')->minDate(now())->live(onBlur: true)->reactive()->native(false)->required(),
                     DatePicker::make('to')->live()->minDate(fn (Get $get) => $get('from'))->native(false)->required(),
@@ -111,7 +113,7 @@ class WorkFromHomeRequest extends Page implements HasForms, HasTable
     protected function getHeaderWidgets(): array
     {
         return [
-            \App\Filament\Employee\Widgets\WorkFromHome::class
+            WorkFromHome::class
         ];
     }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Manjam;
 
+use App\Models\TalentType;
 use App\Models\Talent;
 use App\Models\TalentRequest;
 use Livewire\Component;
@@ -15,7 +16,7 @@ class Statistics extends Component
     public function mount()
     {
         $this->talents_count = Talent::where('status', 2)->count();
-        $this->talent_type_count = \App\Models\TalentType::count();
+        $this->talent_type_count = TalentType::count();
         $this->talent_request_count = TalentRequest::count();
     }
 

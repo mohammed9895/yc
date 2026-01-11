@@ -2,6 +2,7 @@
 
 namespace App\Filament\Cp\Pages;
 
+use Filament\Actions\Action;
 use App\Models\ThreeD;
 use App\Models\User;
 use App\Notifications\SmsMessage;
@@ -13,7 +14,6 @@ use Filament\Forms\Concerns\InteractsWithForms;
 use Filament\Forms\Contracts\HasForms;
 use Filament\Notifications\Notification;
 use Filament\Pages\Page;
-use Filament\Tables\Actions\Action;
 use Filament\Tables\Columns\BadgeColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Concerns\InteractsWithTable;
@@ -24,9 +24,9 @@ class ThreeDHallBooking extends Page implements HasForms, HasTable
 {
     use InteractsWithForms,  InteractsWithTable;
 
-    protected static ?string $navigationIcon = 'heroicon-o-document-text';
+    protected static string | \BackedEnum | null $navigationIcon = 'heroicon-o-document-text';
 
-    protected static string $view = 'filament.pages.three-d-hall-booking';
+    protected string $view = 'filament.pages.three-d-hall-booking';
 
     public static function getNavigationGroup(): ?string
     {

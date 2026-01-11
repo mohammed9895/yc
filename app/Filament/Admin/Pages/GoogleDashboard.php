@@ -2,15 +2,26 @@
 
 namespace App\Filament\Admin\Pages;
 
+use BezhanSalleh\FilamentGoogleAnalytics\Widgets\PageViewsWidget;
+use BezhanSalleh\FilamentGoogleAnalytics\Widgets\VisitorsWidget;
+use BezhanSalleh\FilamentGoogleAnalytics\Widgets\ActiveUsersOneDayWidget;
+use BezhanSalleh\FilamentGoogleAnalytics\Widgets\ActiveUsersSevenDayWidget;
+use BezhanSalleh\FilamentGoogleAnalytics\Widgets\ActiveUsersTwentyEightDayWidget;
+use BezhanSalleh\FilamentGoogleAnalytics\Widgets\SessionsWidget;
+use BezhanSalleh\FilamentGoogleAnalytics\Widgets\SessionsDurationWidget;
+use BezhanSalleh\FilamentGoogleAnalytics\Widgets\SessionsByCountryWidget;
+use BezhanSalleh\FilamentGoogleAnalytics\Widgets\SessionsByDeviceWidget;
+use BezhanSalleh\FilamentGoogleAnalytics\Widgets\MostVisitedPagesWidget;
+use BezhanSalleh\FilamentGoogleAnalytics\Widgets\TopReferrersListWidget;
 use Filament\Pages\Page;
 use BezhanSalleh\FilamentGoogleAnalytics\Widgets;
 
 
 class GoogleDashboard extends Page
 {
-    protected static ?string $navigationIcon = 'heroicon-o-document-text';
+    protected static string | \BackedEnum | null $navigationIcon = 'heroicon-o-document-text';
 
-    protected static string $view = 'filament.admin.pages.google-dashboard';
+    protected string $view = 'filament.admin.pages.google-dashboard';
 
     public static function getNavigationLabel(): string
     {
@@ -20,17 +31,17 @@ class GoogleDashboard extends Page
     protected function getHeaderWidgets(): array
     {
         return [
-            Widgets\PageViewsWidget::class,
-            Widgets\VisitorsWidget::class,
-            Widgets\ActiveUsersOneDayWidget::class,
-            Widgets\ActiveUsersSevenDayWidget::class,
-            Widgets\ActiveUsersTwentyEightDayWidget::class,
-            Widgets\SessionsWidget::class,
-            Widgets\SessionsDurationWidget::class,
-            Widgets\SessionsByCountryWidget::class,
-            Widgets\SessionsByDeviceWidget::class,
-            Widgets\MostVisitedPagesWidget::class,
-            Widgets\TopReferrersListWidget::class,
+            PageViewsWidget::class,
+            VisitorsWidget::class,
+            ActiveUsersOneDayWidget::class,
+            ActiveUsersSevenDayWidget::class,
+            ActiveUsersTwentyEightDayWidget::class,
+            SessionsWidget::class,
+            SessionsDurationWidget::class,
+            SessionsByCountryWidget::class,
+            SessionsByDeviceWidget::class,
+            MostVisitedPagesWidget::class,
+            TopReferrersListWidget::class,
         ];
     }
 }

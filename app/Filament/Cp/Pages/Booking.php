@@ -2,6 +2,7 @@
 
 namespace App\Filament\Cp\Pages;
 
+use Filament\Actions\Action;
 use App\Models\Attendees;
 use App\Models\Evaluate;
 use App\Models\Slot;
@@ -14,7 +15,6 @@ use Carbon\Carbon;
 use Filament\Notifications\Notification;
 use Filament\Pages\Page;
 use Filament\Support\Contracts\TranslatableContentDriver;
-use Filament\Tables\Actions\Action;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Concerns\InteractsWithTable;
 use Filament\Tables\Contracts\HasTable;
@@ -29,9 +29,9 @@ class Booking extends Page implements HasTable
 {
 //    use HasPageShield;
 
-    protected static ?string $navigationIcon = 'heroicon-o-folder';
+    protected static string | \BackedEnum | null $navigationIcon = 'heroicon-o-folder';
 
-    protected static string $view = 'filament.pages.booking';
+    protected string $view = 'filament.pages.booking';
 
     protected static ?string $title = 'Workshop Bookings';
 

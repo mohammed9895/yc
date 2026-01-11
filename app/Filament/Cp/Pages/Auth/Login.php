@@ -2,21 +2,21 @@
 
 namespace App\Filament\Cp\Pages\Auth;
 
-use Filament\Pages\Auth\Login as BaseAuth;
-use Filament\Forms\Form;
+use Filament\Schemas\Schema;
 
-class Login extends BaseAuth
+
+class Login extends \Filament\Auth\Pages\Login
 {
     protected static ?string $navigationIcon = 'heroicon-o-document-text';
-    protected static string $view = 'filament.cp.pages.auth.login';
+    protected string $view = 'filament.cp.pages.auth.login';
     protected static string $layout = 'layouts.auth';
 
     public ?array $data = [];
 
-    public function form(Form $form): Form
+    public function form(Schema $schema): Schema
     {
-        return $form
-            ->schema([
+        return $schema
+            ->components([
                 $this->getEmailFormComponent(),
                 $this->getPasswordFormComponent(),
                 $this->getRememberFormComponent(),

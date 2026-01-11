@@ -2,6 +2,11 @@
 
 namespace App\Livewire\Auth;
 
+use Filament\Actions\Contracts\HasActions;
+use Filament\Actions\Concerns\InteractsWithActions;
+use Filament\Schemas\Schema;
+use Filament\Schemas\Components\Wizard;
+use Filament\Schemas\Components\Wizard\Step;
 use App\Models\Country;
 use App\Models\Disability;
 use App\Models\EducationType;
@@ -15,10 +20,8 @@ use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\Radio;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
-use Filament\Forms\Components\Wizard;
 use Filament\Forms\Concerns\InteractsWithForms;
 use Filament\Forms\Contracts\HasForms;
-use Filament\Forms\Form;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Http;
@@ -26,9 +29,10 @@ use Illuminate\Support\HtmlString;
 use Livewire\Attributes\Layout;
 use Livewire\Component;
 
-class Register extends Component implements HasForms
+class Register extends Component implements HasForms, HasActions
 {
 
+    use InteractsWithActions;
     use InteractsWithForms;
 
     public ?array $data = [];
@@ -41,12 +45,12 @@ class Register extends Component implements HasForms
         $this->form->fill();
     }
 
-    public function form(Form $form): Form
+    public function form(Schema $schema): Schema
     {
-        return $form
-            ->schema([
+        return $schema
+            ->components([
                         Wizard::make([
-                            Wizard\Step::make(__('Step 1'))
+                            Step::make(__('Step 1'))
                                 ->schema([
                                     TextInput::make('first_name')
                                         ->label(__('First Name'))
@@ -110,7 +114,7 @@ class Register extends Component implements HasForms
                                     'sm' => 'full',
                                     'lg' => 2,
                                 ]),
-                            Wizard\Step::make(__('Step 2'))
+                            Step::make(__('Step 2'))
                                 ->schema([
                                     Radio::make('citizen')
                                         ->label(__('filament::users.citizin'))
@@ -148,7 +152,7 @@ class Register extends Component implements HasForms
                                         ->options(State::all()->pluck('name', 'id'))
                                         ->searchable(),
                                 ]),
-                            Wizard\Step::make(__('Step 3'))
+                            Step::make(__('Step 3'))
                                 ->schema([
                                     Select::make('education_type_id')
                                         ->label(__('filament::users.degree'))

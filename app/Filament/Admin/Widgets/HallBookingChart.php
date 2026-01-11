@@ -7,7 +7,7 @@ use Filament\Widgets\PieChartWidget;
 
 class HallBookingChart extends PieChartWidget
 {
-    protected static ?string $heading = 'Hall Booking';
+    protected ?string $heading = 'Hall Booking';
 
     public static function canView(): bool
     {

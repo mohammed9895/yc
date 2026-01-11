@@ -2,6 +2,7 @@
 
 namespace App\Filament\Admin\Resources\FormResource\Pages;
 
+use Filament\Actions\CreateAction;
 use App\Filament\Admin\Resources\FormResource;
 use Filament\Pages\Actions;
 use Filament\Resources\Pages\ListRecords;
@@ -13,7 +14,7 @@ class ListForms extends ListRecords
     protected function getActions(): array
     {
         return [
-            Actions\CreateAction::make(),
+            CreateAction::make(),
         ];
     }
 }

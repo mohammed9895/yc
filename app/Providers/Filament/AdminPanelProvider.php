@@ -2,13 +2,16 @@
 
 namespace App\Providers\Filament;
 
+use Filament\Pages\Dashboard;
+
+use LaraZeus\SpatieTranslatable\SpatieTranslatablePlugin;
+use BezhanSalleh\FilamentShield\FilamentShieldPlugin;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
 use Filament\Pages;
 use Filament\Panel;
 use Filament\PanelProvider;
-use Filament\SpatieLaravelTranslatablePlugin;
 use Filament\Support\Colors\Color;
 use Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse;
 use Illuminate\Cookie\Middleware\EncryptCookies;
@@ -39,23 +42,13 @@ class AdminPanelProvider extends PanelProvider
             ->discoverResources(in: app_path('Filament/Admin/Resources'), for: 'App\\Filament\\Admin\\Resources')
             ->discoverPages(in: app_path('Filament/Admin/Pages'), for: 'App\\Filament\\Admin\\Pages')
             ->pages([
-                Pages\Dashboard::class,
+                Dashboard::class,
             ])
             ->font('IBM Plex Sans Arabic')
             ->discoverWidgets(in: app_path('Filament/Admin/Widgets'), for: 'App\\Filament\\Admin\\Widgets')
             ->databaseNotifications()
             ->widgets([
-                Widgets\PageViewsWidget::class,
-                Widgets\VisitorsWidget::class,
-                Widgets\ActiveUsersOneDayWidget::class,
-                Widgets\ActiveUsersSevenDayWidget::class,
-                Widgets\ActiveUsersTwentyEightDayWidget::class,
-                Widgets\SessionsWidget::class,
-                Widgets\SessionsDurationWidget::class,
-                Widgets\SessionsByCountryWidget::class,
-                Widgets\SessionsByDeviceWidget::class,
-                Widgets\MostVisitedPagesWidget::class,
-                Widgets\TopReferrersListWidget::class,
+
             ])
             ->middleware([
                 EncryptCookies::class,
@@ -70,20 +63,11 @@ class AdminPanelProvider extends PanelProvider
             ])
             ->authMiddleware([
                 Authenticate::class,
-            ])->plugin(
-                TranslationManagerPlugin::make(),
-                BreezyCore::make()->myProfile(
-                    shouldRegisterUserMenu: true, // Sets the 'account' link in the panel User Menu (default = true)
-                    shouldRegisterNavigation: false, // Adds a main navigation item for the My Profile page (default = false)
-                    navigationGroup: 'Settings', // Sets the navigation group for the My Profile page (default = null)
-                    hasAvatars: false, // Enables the avatar upload form component (default = false)
-                    slug: 'my-profile' // Sets the slug for the profile page (default = 'my-profile')
-                ),
-            )->plugins([
-                SpatieLaravelTranslatablePlugin::make()->defaultLocales(['ar', 'en']),
+            ])->plugins([
+                SpatieTranslatablePlugin::make()->defaultLocales(['ar', 'en']),
                 BoltPlugin::make(),
-                 \BezhanSalleh\FilamentShield\FilamentShieldPlugin::make(),
-                \BezhanSalleh\FilamentGoogleAnalytics\FilamentGoogleAnalyticsPlugin::make(),
+//                 FilamentShieldPlugin::make(),
+//                FilamentGoogleAnalyticsPlugin::make(),
             ]);
     }
 }

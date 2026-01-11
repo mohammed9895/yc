@@ -2,6 +2,9 @@
 
 namespace App\Livewire\Instructor;
 
+use Filament\Forms\Contracts\HasForms;
+use Filament\Actions\Contracts\HasActions;
+use Filament\Actions\Concerns\InteractsWithActions;
 use DateTime;
 use Wizard\Step;
 
@@ -28,22 +31,17 @@ use Filament\Forms\Components\ViewField;
 use Filament\Notifications\Notification;
 use Filament\Forms\Concerns\InteractsWithForms;
 
-class AttendeesModel extends ModalComponent implements Forms\Contracts\HasForms
+class AttendeesModel extends ModalComponent implements HasForms, HasActions
 {
+    use InteractsWithActions;
     use InteractsWithForms;
     public $workshop;
-
     public $slots;
     public $slot_id = 0;
     public $attendance;
-
     public $attendanceCount;
-
-
     public $users = [];
-
     public $step;
-
     public function mount(Workshop $workshop)
     {
         $this->step = 1;
@@ -65,12 +63,10 @@ class AttendeesModel extends ModalComponent implements Forms\Contracts\HasForms
             $this->step++;
         }
     }
-
     public function lessStep()
     {
         $this->step--;
     }
-
     public function create()
     {
         foreach ($this->users as $key => $value) {
@@ -87,7 +83,6 @@ class AttendeesModel extends ModalComponent implements Forms\Contracts\HasForms
             ->send();
         $this->closeModal();
     }
-
     public function update()
     {
         foreach ($this->users as $key => $value) {

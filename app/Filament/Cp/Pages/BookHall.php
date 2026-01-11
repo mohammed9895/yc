@@ -9,9 +9,9 @@ class BookHall extends Page
 {
 //    use HasPageShield;
 
-    protected static ?string $navigationIcon = 'heroicon-o-tag';
+    protected static string | \BackedEnum | null $navigationIcon = 'heroicon-o-tag';
 
-    protected static string $view = 'filament.pages.book-hall';
+    protected string $view = 'filament.pages.book-hall';
 
     public static function getNavigationGroup(): ?string
     {

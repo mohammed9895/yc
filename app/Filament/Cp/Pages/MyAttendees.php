@@ -19,9 +19,9 @@ class MyAttendees extends Page implements HasTable
 {
 
 
-    protected static ?string $navigationIcon = 'heroicon-o-document-text';
+    protected static string | \BackedEnum | null $navigationIcon = 'heroicon-o-document-text';
 
-    protected static string $view = 'filament.pages.my-attendees';
+    protected string $view = 'filament.pages.my-attendees';
 
     public static function getNavigationGroup(): ?string
     {
@@ -80,7 +80,7 @@ class MyAttendees extends Page implements HasTable
                 ->query(fn (Builder $query): Builder => $query->where('attendance', 1))->toggle(),
 
             Filter::make('slot')
-                ->form([
+                ->schema([
                     Select::make('slot')->options(Attendees::join('slots', 'attendees.slot_id', '=', 'slots.id')->where('user_id', '=', Auth::id())->pluck('slots.name', 'slots.id'))->searchable()->label(__('filament::yc.slot')),
                 ])->query(function (Builder $query, array $data): Builder {
 
@@ -97,7 +97,7 @@ class MyAttendees extends Page implements HasTable
 
 
             Filter::make('date')
-                ->form([
+                ->schema([
                     DatePicker::make('created_from')->label(__('filament::yc.created_from')),
                     DatePicker::make('created_until')->label(__('filament::yc.created_until')),
                 ])

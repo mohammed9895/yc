@@ -9,7 +9,7 @@ class CategoriesController extends Controller
 {
     public function index()
     {
-        $talent_types = \App\Models\TalentType::withCount('talents')->get();
+        $talent_types = TalentType::withCount('talents')->get();
         return view('frontend.manjam.categories', compact('talent_types'));
     }
 

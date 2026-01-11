@@ -15,11 +15,11 @@ class ExpenseChart extends ChartWidget
 
     protected static ?int $sort = 3;
 
-    protected static ?string $heading = 'Expanses Chart';
+    protected ?string $heading = 'Expanses Chart';
 
     protected int | string | array $columnSpan = 'full';
 
-    protected static ?string $maxHeight = '300px';
+    protected ?string $maxHeight = '300px';
 
     public ?string $filter = 'this_year';
 

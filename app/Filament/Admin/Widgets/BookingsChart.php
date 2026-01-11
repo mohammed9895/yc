@@ -8,7 +8,7 @@ use Filament\Widgets\BarChartWidget;
 
 class BookingsChart extends BarChartWidget
 {
-    protected static ?string $heading = 'Booking';
+    protected ?string $heading = 'Booking';
 
     protected int | string | array $columnSpan = 'full';
 

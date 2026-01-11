@@ -2,6 +2,8 @@
 
 namespace App\Filament\Cp\Pages;
 
+use Filament\Schemas\Schema;
+use Filament\Actions\Action;
 use App\Models\Field;
 use App\Models\Freelancers;
 use App\Notifications\SmsMessage;
@@ -10,10 +12,8 @@ use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Concerns\InteractsWithForms;
 use Filament\Forms\Contracts\HasForms;
-use Filament\Forms\Form;
 use Filament\Notifications\Notification;
 use Filament\Pages\Page;
-use Filament\Tables\Actions\Action;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Concerns\InteractsWithTable;
 use Filament\Tables\Contracts\HasTable;
@@ -40,19 +40,19 @@ class RegisterAsFreelancer extends Page implements HasForms, HasTable
         return   __('Register as Freelancer');
     }
 
-    protected static ?string $navigationIcon = 'heroicon-o-document-text';
+    protected static string | \BackedEnum | null $navigationIcon = 'heroicon-o-document-text';
 
-    protected static string $view = 'filament.pages.register-as-freelancer';
+    protected string $view = 'filament.pages.register-as-freelancer';
 
     public function mount(): void
     {
         $this->form->fill();
     }
 
-    public function form(Form $form): Form
+    public function form(Schema $schema): Schema
     {
-        return $form
-            ->schema([
+        return $schema
+            ->components([
             FileUpload::make('civil_copy')
                 ->label(__('Civil Copy'))
                 ->required(),

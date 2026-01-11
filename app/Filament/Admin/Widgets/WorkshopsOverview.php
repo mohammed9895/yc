@@ -2,11 +2,11 @@
 
 namespace App\Filament\Admin\Widgets;
 
+use Filament\Widgets\StatsOverviewWidget\Stat;
 use App\Models\Booking;
 use App\Models\Slot;
 use App\Models\Workshop;
 use Filament\Widgets\StatsOverviewWidget as BaseWidget;
-use Filament\Widgets\StatsOverviewWidget\Card;
 
 class WorkshopsOverview extends BaseWidget
 {
@@ -20,9 +20,9 @@ class WorkshopsOverview extends BaseWidget
     protected function getCards(): array
     {
         return [
-            Card::make('Total Workshops', Workshop::count()),
-            Card::make('Total Slots', Slot::count()),
-            Card::make('Total Bookings', Booking::count()),
+            Stat::make('Total Workshops', Workshop::count()),
+            Stat::make('Total Slots', Slot::count()),
+            Stat::make('Total Bookings', Booking::count()),
         ];
     }
 

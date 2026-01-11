@@ -2,6 +2,11 @@
 
 namespace App\Providers\Filament;
 
+use Filament\Pages\Dashboard;
+use Filament\Widgets\AccountWidget;
+use Filament\Widgets\FilamentInfoWidget;
+use LaraZeus\SpatieTranslatable\SpatieTranslatablePlugin;
+use BezhanSalleh\FilamentShield\FilamentShieldPlugin;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
@@ -9,7 +14,6 @@ use Filament\Navigation\NavigationGroup;
 use Filament\Pages;
 use Filament\Panel;
 use Filament\PanelProvider;
-use Filament\SpatieLaravelTranslatablePlugin;
 use Filament\Support\Colors\Color;
 use Filament\Widgets;
 use Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse;
@@ -39,12 +43,12 @@ class EmployeePanelProvider extends PanelProvider
             ->discoverResources(in: app_path('Filament/Employee/Resources'), for: 'App\\Filament\\Employee\\Resources')
             ->discoverPages(in: app_path('Filament/Employee/Pages'), for: 'App\\Filament\\Employee\\Pages')
             ->pages([
-                Pages\Dashboard::class,
+                Dashboard::class,
             ])
             ->discoverWidgets(in: app_path('Filament/Employee/Widgets'), for: 'App\\Filament\\Employee\\Widgets')
             ->widgets([
-                Widgets\AccountWidget::class,
-                Widgets\FilamentInfoWidget::class,
+                AccountWidget::class,
+                FilamentInfoWidget::class,
             ])
             ->navigationGroups([
                 NavigationGroup::make()
@@ -72,8 +76,8 @@ class EmployeePanelProvider extends PanelProvider
             ->font('IBM Plex Sans Arabic')
             ->brandLogo(asset('images/yc-logo-colored.svg'))
             ->plugins([
-                SpatieLaravelTranslatablePlugin::make()->defaultLocales(['ar', 'en']),
-                \BezhanSalleh\FilamentShield\FilamentShieldPlugin::make(),
+                SpatieTranslatablePlugin::make()->defaultLocales(['ar', 'en']),
+                FilamentShieldPlugin::make(),
             ]);
     }
 }

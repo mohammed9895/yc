@@ -2,6 +2,9 @@
 
 namespace App\Livewire\User;
 
+use Filament\Actions\Contracts\HasActions;
+use Filament\Actions\Concerns\InteractsWithActions;
+use Filament\Schemas\Components\Grid;
 use Carbon\Carbon;
 use App\Models\Slot;
 use App\Models\Booking;
@@ -9,7 +12,6 @@ use Livewire\Component;
 use App\Models\Evaluate;
 use App\Models\Workshop;
 use App\Models\Attendees;
-use Filament\Forms\Components\Grid;
 use Filament\Forms\Components\Radio;
 use Illuminate\Http\Client\Response;
 use Illuminate\Support\Facades\Auth;
@@ -22,8 +24,9 @@ use Filament\Forms\Components\TextInput;
 use Filament\Notifications\Notification;
 use Filament\Forms\Concerns\InteractsWithForms;
 
-class EvaluateModel extends ModalComponent implements HasForms
+class EvaluateModel extends ModalComponent implements HasForms, HasActions
 {
+    use InteractsWithActions;
     use InteractsWithForms;
 
     public $booking;

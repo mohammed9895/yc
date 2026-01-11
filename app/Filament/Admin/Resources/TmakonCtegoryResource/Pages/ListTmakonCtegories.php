@@ -2,9 +2,11 @@
 
 namespace App\Filament\Admin\Resources\TmakonCtegoryResource\Pages;
 
-use App\Filament\Admin\Resources\TmakonCategoryResource;
+use LaraZeus\SpatieTranslatable\Resources\Concerns\Translatable;
+use LaraZeus\SpatieTranslatable\Actions\LocaleSwitcher;
+use Filament\Actions\CreateAction;
+use App\Filament\Admin\Resources\TmakonCategories\TmakonCategoryResource;
 use Filament\Actions;
-use Filament\Resources\Concerns\Translatable;
 use Filament\Resources\Pages\ListRecords;
 
 class ListTmakonCtegories extends ListRecords
@@ -15,8 +17,8 @@ class ListTmakonCtegories extends ListRecords
     protected function getHeaderActions(): array
     {
         return [
-            Actions\LocaleSwitcher::make(),
-            Actions\CreateAction::make(),
+            LocaleSwitcher::make(),
+            CreateAction::make(),
         ];
     }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Notifications;
 
+use Exception;
 use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Http;
@@ -59,7 +60,7 @@ class SmsMessage
     public function send(): mixed
     {
         if (!$this->to || !$this->message) {
-            throw new \Exception('SMS not correct.');
+            throw new Exception('SMS not correct.');
         }
 
         return Http::post('' . $this->baseUrl . '?UserId=' . $this->user . '&Password=' . $this->password . '&MobileNo=' . $this->to . '&Message=' . $this->message . '&PushDateTime=10/12/2022 02:03:00&Lang=' . $this->lang . '&FLashSMS=N');

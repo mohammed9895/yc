@@ -2,6 +2,8 @@
 
 namespace App\Livewire\User;
 
+use Filament\Actions\Contracts\HasActions;
+use Filament\Actions\Concerns\InteractsWithActions;
 use App\Models\Company;
 use App\Models\Field;
 use App\Models\Submission;
@@ -18,8 +20,9 @@ use Filament\Tables\Contracts\HasTable;
 use Livewire\Component;
 use LivewireUI\Modal\ModalComponent;
 
-class SubmissionModel extends ModalComponent implements HasForms, HasTable
+class SubmissionModel extends ModalComponent implements HasForms, HasTable, HasActions
 {
+    use InteractsWithActions;
     use InteractsWithForms,  InteractsWithTable;
 
     public $tender;

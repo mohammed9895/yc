@@ -2,6 +2,8 @@
 
 namespace App\Filament\Employee\Pages;
 
+use Filament\Schemas\Schema;
+use Filament\Schemas\Components\Section;
 use App\BittyCashStatus;
 use App\LeaveStatus;
 use App\Models\Employee;
@@ -14,7 +16,6 @@ use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Concerns\InteractsWithForms;
 use Filament\Forms\Contracts\HasForms;
-use Filament\Forms\Form;
 use Filament\Forms\Get;
 use Filament\Notifications\Notification;
 use Filament\Pages\Page;
@@ -27,9 +28,9 @@ class BittyCashRequest extends Page implements HasForms, HasTable
 {
     use InteractsWithForms, InteractsWithTable;
 
-    protected static ?string $navigationIcon = 'heroicon-o-banknotes';
+    protected static string | \BackedEnum | null $navigationIcon = 'heroicon-o-banknotes';
 
-    protected static string $view = 'filament.employee.pages.bitty-cash-request';
+    protected string $view = 'filament.employee.pages.bitty-cash-request';
 
 
     public array $data = [];
@@ -39,10 +40,10 @@ class BittyCashRequest extends Page implements HasForms, HasTable
         $this->form->fill();
     }
 
-    public function form(Form $form): Form
+    public function form(Schema $schema): Schema
     {
-        return $form->schema([
-            \Filament\Forms\Components\Section::make('')
+        return $schema->components([
+            Section::make('')
                 ->schema([
                     TextInput::make('amount')->required()->suffix('OMR'),
                     DatePicker::make('expense_date')->required()->native(false),
